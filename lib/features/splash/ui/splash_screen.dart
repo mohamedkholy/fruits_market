@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/assets/assets.dart';
+
+import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,8 +14,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 1)).then((value) {
-      // Navigator.pushReplacementNamed(context, );
+
+    Future.delayed(const Duration(seconds: 1)).then((value) {
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, MyRoutes.onBoardingScreen);
+      }
     });
     super.initState();
   }
