@@ -31,6 +31,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   injectable_generator: ^2.8.0
   build_runner: ^2.6.0
+  flutter_launcher_icons: ^0.13.1
 
 flutter_assets:
   assets_path: assets/images/
@@ -114,3 +115,13 @@ flutter_native_splash:
   ios: true
   web: true
 
+
+  
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/images/png/logo.png
+  adaptive_icon_background: "#003500"
+  adaptive_icon_foreground: assets/images/png/logo.png
+  adaptive_icon_foreground_inset: 25
