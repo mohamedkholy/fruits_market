@@ -21,6 +21,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   injectable: ^2.5.1
   get_it: ^8.0.3
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
@@ -97,3 +98,18 @@ flutter:
         weight: 900
         style: italic
           
+flutter_native_splash:
+  color: "#003500"
+  image: assets/images/png/logo.png
+
+  android_12:
+    image: assets/images/png/logo.png
+    color: "#003500"
+
+  # color_dark: "#000000"
+  # image_dark: assets/images/png/logo_dark.png
+
+  android: true
+  ios: true
+  web: true
+
