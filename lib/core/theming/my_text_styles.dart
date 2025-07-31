@@ -18,9 +18,53 @@ abstract class MyTextStyles {
     fontWeight: FontWeightHelper.bold,
     color: Colors.black,
   );
+
+  static const TextStyle font28BoldBlack = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeightHelper.bold,
+    color: Colors.black,
+  );
+
+  static const TextStyle font14RegularBlack = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.black,
+  );
+
+  static const TextStyle font18RegularBlack = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.black,
+  );
+
+  static const TextStyle font18RegularBlueUnderline = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.regular,
+    color: MyColors.blue,
+    decoration: TextDecoration.underline,
+  );
+
+  static const TextStyle font14RegularWhite = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.white,
+  );
+
   static const TextStyle font17RegularGrey = TextStyle(
     fontSize: 17,
     fontWeight: FontWeightHelper.regular,
     color: MyColors.grey,
+  );
+
+  static const TextStyle font42BoldPrimary = TextStyle(
+    fontSize: 42,
+    fontWeight: FontWeightHelper.bold,
+    color: MyColors.primaryColor,
+  );
+
+  static const TextStyle font47BoldPrimary = TextStyle(
+    fontSize: 47,
+    fontWeight: FontWeightHelper.bold,
+    color: MyColors.primaryColor,
   );
 }
