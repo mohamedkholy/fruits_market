@@ -3,6 +3,7 @@ import 'package:fruits_market/core/di/dependency_injection.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/features/login/ui/login_screen.dart';
 import 'package:fruits_market/features/on_boarding/ui/on_boarding_screen.dart';
+import 'package:fruits_market/features/sign_up/ui/sign_up_screen.dart';
 import 'package:fruits_market/features/splash/logic/splash_cubit.dart';
 import 'package:fruits_market/features/splash/ui/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,9 @@ abstract class AppRouter {
         return _createRoute(const OnBoardingScreen());
       case MyRoutes.loginScreen:
         return _createRoute(const LoginScreen());
+
+      case MyRoutes.signupScreen:
+        return _createRoute(const SignUpScreen());
       default:
         return null;
     }

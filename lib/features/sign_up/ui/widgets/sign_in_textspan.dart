@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 
-class SignUpTextspan extends StatelessWidget {
-  const SignUpTextspan({super.key});
+class SignInTextspan extends StatelessWidget {
+  const SignInTextspan({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,9 @@ class SignUpTextspan extends StatelessWidget {
         children: [
           TextSpan(
             recognizer: TapGestureRecognizer()..onTap = () {
-              Navigator.pushNamed(context, MyRoutes.signupScreen);
+              Navigator.pop(context);
             },
-            text: "Sign up",
+            text: "Sign in",
             style: MyTextStyles.font18RegularBlueUnderline,
           ),
         ],
