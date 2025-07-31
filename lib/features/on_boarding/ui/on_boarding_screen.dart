@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/di/dependency_injection.dart';
+import 'package:fruits_market/core/helpers/shared_preferences_keys.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/features/on_boarding/ui/widgets/next_page_button.dart';
 import 'package:fruits_market/features/on_boarding/ui/widgets/on_boarding_page_view.dart';
@@ -58,7 +59,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             );
                           } else {
                             getIt<SharedPreferences>().setBool(
-                              'isFirstLaunch',
+                              SharedPreferencesKeys.isFirstLaunch,
                               false,
                             );
                             Navigator.pushReplacementNamed(context, MyRoutes.loginScreen);

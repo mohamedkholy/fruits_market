@@ -18,7 +18,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.2.0
   shared_preferences: ^2.5.3
-  bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
   injectable: ^2.5.1
   get_it: ^8.0.3
 

@@ -10,6 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:fruits_market/core/di/register_module.dart' as _i439;
+import 'package:fruits_market/features/splash/logic/splash_cubit.dart' as _i179;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -25,6 +26,9 @@ extension GetItInjectableX on _i174.GetIt {
     await gh.factoryAsync<_i460.SharedPreferences>(
       () => registerModule.prefs,
       preResolve: true,
+    );
+    gh.factory<_i179.SplashCubit>(
+      () => _i179.SplashCubit(gh<_i460.SharedPreferences>()),
     );
     return this;
   }

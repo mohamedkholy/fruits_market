@@ -3,9 +3,9 @@ import 'package:fruits_market/core/di/dependency_injection.dart';
 import 'package:fruits_market/core/routing/app_router.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         fontFamily: "poppins",
         primaryColor: MyColors.primaryColor,
       ),
