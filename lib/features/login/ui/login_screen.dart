@@ -19,7 +19,10 @@ class LoginScreen extends StatelessWidget {
               constraints: const BoxConstraints(maxWidth: 800),
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.all(32),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 32,
+                ),
                 child: Column(
                   children: [
                     Align(
