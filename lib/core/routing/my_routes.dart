@@ -4,6 +4,7 @@ abstract class MyRoutes {
   static const String loginScreen = "login";
   static const String signupScreen = "signup";
   static const String phoneSignInScreen = "phoneSignIn";
+  static const String enterPhoneScreen = "enterPhone";
   static const String otpScreen = "otp";
   static const String homeScreen = "home";
 
