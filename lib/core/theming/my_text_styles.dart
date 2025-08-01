@@ -49,6 +49,18 @@ abstract class MyTextStyles {
     color: Colors.black,
   );
 
+  static const TextStyle font18RegularGrey= TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.regular,
+    color: MyColors.grey,
+  );
+
+  static const TextStyle font20RegularBlue = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeightHelper.regular,
+    color: MyColors.blue,
+  );
+
   static const TextStyle font18RegularBlueUnderline = TextStyle(
     fontSize: 18,
     fontWeight: FontWeightHelper.regular,
@@ -79,5 +91,4 @@ abstract class MyTextStyles {
     fontWeight: FontWeightHelper.bold,
     color: MyColors.primaryColor,
   );
-  
 }
