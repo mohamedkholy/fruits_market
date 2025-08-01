@@ -12,7 +12,7 @@ class SignUpTextspan extends StatelessWidget {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: "Don't have an account? ",
-        style: MyTextStyles.font18RegularBlack,
+        style: MyTextStyles.font18RegularGrey,
         children: [
           TextSpan(
             recognizer: TapGestureRecognizer()..onTap = () {

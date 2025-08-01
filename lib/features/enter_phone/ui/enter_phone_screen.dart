@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/core/widgets/my_button.dart';
 import 'package:fruits_market/core/widgets/my_phone_number_form_field.dart';
@@ -77,7 +78,9 @@ class _EnterPhoneScreenState extends State<EnterPhoneScreen> {
                       const SizedBox(height: 60),
                       MyButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {}
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.pushNamed(context, MyRoutes.otpScreen);
+                          }
                         },
                         text: "Submit",
                       ),

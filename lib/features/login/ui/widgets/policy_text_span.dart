@@ -7,11 +7,11 @@ class PolicyTextSpan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
+    return RichText(     
       textAlign: TextAlign.center,
-      text: TextSpan(
+      text: TextSpan(     
         text: "by continuing you agree to our ",
-        style: MyTextStyles.font18RegularBlack,
+        style: MyTextStyles.font18RegularGrey,
         children: [
           TextSpan(
             recognizer: TapGestureRecognizer()..onTap = () {},
@@ -20,7 +20,7 @@ class PolicyTextSpan extends StatelessWidget {
           ),
           const TextSpan(
             text: " and our ",
-            style: MyTextStyles.font18RegularBlack,
+            style: MyTextStyles.font18RegularGrey,
           ),
           TextSpan(
             recognizer: TapGestureRecognizer()..onTap = () {},
