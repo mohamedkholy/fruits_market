@@ -3,6 +3,8 @@ abstract class MyRoutes {
   static const String onBoardingScreen = "onBoarding";
   static const String loginScreen = "login";
   static const String signupScreen = "signup";
+  static const String phoneSignInScreen = "phoneSignIn";
+  static const String otpScreen = "otp";
   static const String homeScreen = "home";
 
 }

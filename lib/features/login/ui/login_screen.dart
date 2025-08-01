@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/features/login/ui/widgets/facebook_button.dart';
 import 'package:fruits_market/features/login/ui/widgets/policy_text_span.dart';
@@ -56,7 +57,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 52),
                     SignInButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, MyRoutes.phoneSignInScreen);
+                      },
                       icon: Assets.imagesSvgPhone,
                       label: "Sign in with Phone Number",
                     ),
