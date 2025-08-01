@@ -3,6 +3,7 @@ import 'package:fruits_market/core/di/dependency_injection.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/features/login/ui/login_screen.dart';
 import 'package:fruits_market/features/on_boarding/ui/on_boarding_screen.dart';
+import 'package:fruits_market/features/phone_sign_in/ui/phone_sign_in_screen.dart';
 import 'package:fruits_market/features/sign_up/ui/sign_up_screen.dart';
 import 'package:fruits_market/features/splash/logic/splash_cubit.dart';
 import 'package:fruits_market/features/splash/ui/splash_screen.dart';
@@ -17,14 +18,17 @@ abstract class AppRouter {
             create: (context) => getIt<SplashCubit>(),
             child: const SplashScreen(),
           ),
+          settings,
         );
       case MyRoutes.onBoardingScreen:
-        return _createRoute(const OnBoardingScreen());
+        return _createRoute(const OnBoardingScreen(), settings);
       case MyRoutes.loginScreen:
-        return _createRoute(const LoginScreen());
+        return _createRoute(const LoginScreen(), settings);
 
       case MyRoutes.signupScreen:
-        return _createRoute(const SignUpScreen());
+        return _createRoute(const SignUpScreen(), settings);
+      case MyRoutes.phoneSignInScreen:
+        return _createRoute(const PhoneSignInScreen(), settings);
       default:
         return null;
     }
@@ -46,8 +50,9 @@ abstract class AppRouter {
     return SlideTransition(position: offsetAnimation, child: child);
   }
 
-  static Route<dynamic> _createRoute(Widget page) {
+  static Route<dynamic> _createRoute(Widget page, RouteSettings settings) {
     return PageRouteBuilder(
+      settings: settings,
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: _slideFromRight,
       transitionDuration: const Duration(milliseconds: 1000),
