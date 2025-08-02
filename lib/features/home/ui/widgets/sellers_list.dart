@@ -10,7 +10,7 @@ class SellersList extends StatefulWidget {
 }
 
 class _SellersListState extends State<SellersList> {
-  final List<Seller> sellers = const [
+  final sellers = const [
     Seller(
       id: 's1',
       name: 'Burger Palace',
@@ -20,6 +20,7 @@ class _SellersListState extends State<SellersList> {
       categories: ['Burgers', 'Fries'],
       deliveryFee: 2.5,
       mainProduct: 'burgers',
+      deliveryTime: '30-40 min',
     ),
     Seller(
       id: 's2',
@@ -30,6 +31,7 @@ class _SellersListState extends State<SellersList> {
       categories: ['Pizza', 'Pasta'],
       deliveryFee: 3.0,
       mainProduct: 'pizza',
+      deliveryTime: '25-35 min',
     ),
     Seller(
       id: 's3',
@@ -40,8 +42,9 @@ class _SellersListState extends State<SellersList> {
       categories: ['Sushi', 'Seafood'],
       deliveryFee: 4.0,
       mainProduct: 'sushi',
+      deliveryTime: '40-50 min',
     ),
-    Seller(
+    const Seller(
       id: 's4',
       name: 'Vegan Delight',
       imageUrl: 'https://example.com/images/vegan_delight.jpg',
@@ -50,6 +53,7 @@ class _SellersListState extends State<SellersList> {
       categories: ['Vegan', 'Salads'],
       deliveryFee: 2.0,
       mainProduct: 'salads',
+      deliveryTime: '20-30 min',
     ),
   ];
 
