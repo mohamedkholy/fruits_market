@@ -22,6 +22,8 @@ class Assets {
   /// assets/images/png/category_farms.png
   static const String imagesPngCategoryFarms = "assets/images/png/category_farms.png";
 
+  static const String download = "assets/images/png/download.jpeg";
+
   /// Assets for imagesPngCategoryPharmacy
   /// assets/images/png/category_pharmacy.png
   static const String imagesPngCategoryPharmacy = "assets/images/png/category_pharmacy.png";

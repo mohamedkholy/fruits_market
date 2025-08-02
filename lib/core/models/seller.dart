@@ -7,6 +7,7 @@ class Seller {
   final List<String> categories;
   final double deliveryFee;
   final String mainProduct;
+  final String deliveryTime;
 
   const Seller({
     required this.id,
@@ -17,6 +18,7 @@ class Seller {
     required this.categories,
     required this.deliveryFee,
     required this.mainProduct,
+    required this.deliveryTime,
   });
 
   factory Seller.fromJson(Map<String, dynamic> json) {
@@ -29,17 +31,19 @@ class Seller {
       categories: List<String>.from(json['categories']),
       deliveryFee: (json['delivery_fee'] as num).toDouble(),
       mainProduct: json['main_product'],
+      deliveryTime: json['delivery_time'],
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'image_url': imageUrl,
-        'rating': rating,
-        'is_open': isOpen,
-        'categories': categories,
-        'delivery_fee': deliveryFee,
-        'main_product': mainProduct,
-      };
+    'id': id,
+    'name': name,
+    'image_url': imageUrl,
+    'rating': rating,
+    'is_open': isOpen,
+    'categories': categories,
+    'delivery_fee': deliveryFee,
+    'main_product': mainProduct,
+    'delivery_time': deliveryTime,
+  };
 }

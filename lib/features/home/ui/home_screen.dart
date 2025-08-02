@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                     width: double.infinity,
                     child: const Column(
                       children: [
-                        SizedBox(height: 8),
+                        SizedBox(height: 10),
                         AdsLayout(),
                         SizedBox(height: 16),
                         CategoriesRow(),
