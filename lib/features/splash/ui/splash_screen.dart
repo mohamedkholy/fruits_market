@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 MyRoutes.onBoardingScreen,
               );
             } else if (state is SplashHome) {
-              Navigator.pushReplacementNamed(context, MyRoutes.homeScreen);
+              Navigator.pushReplacementNamed(context, MyRoutes.navigationScreen);
             } else if (state is SplashLogin) {
               Navigator.pushReplacementNamed(context, MyRoutes.loginScreen);
             }

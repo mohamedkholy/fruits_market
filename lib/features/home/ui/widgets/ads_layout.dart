@@ -16,6 +16,7 @@ class _MyWidgetState extends State<AdsLayout> {
   int _selectedPageIndex = 0;
   final PageController _controller = PageController();
   List<String> ads = [
+    Assets.imagesPngAdExample6,
     Assets.imagesPngAdExample4,
     Assets.imagesPngAdExample5,
     Assets.imagesPngAdExample6,
@@ -51,21 +52,25 @@ class _MyWidgetState extends State<AdsLayout> {
         PageIndicator(
           selectedPageIndex: _selectedPageIndex,
           size: 10,
-          length: ads.length,
+          length: ads.length-1,
         ),
       ],
     );
   }
 
   void startTimer() {
-    Timer.periodic(const Duration(seconds: 3), (timer) {
+    Future.delayed(
+      Duration(milliseconds: _selectedPageIndex == ads.length - 2 ? 500 : 3000),
+    ).then((value) {
       if (_selectedPageIndex == ads.length - 1) {
         _controller.jumpToPage(0);
+        startTimer();
       } else {
         _controller.nextPage(
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
         );
+        startTimer();
       }
     });
   }

@@ -4,6 +4,7 @@ import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/features/enter_phone/ui/enter_phone_screen.dart';
 import 'package:fruits_market/features/home/ui/home_screen.dart';
 import 'package:fruits_market/features/login/ui/login_screen.dart';
+import 'package:fruits_market/features/navigation/ui/navigation_screen.dart';
 import 'package:fruits_market/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:fruits_market/features/otp/ui/otp_screen.dart';
 import 'package:fruits_market/features/phone_sign_in/ui/phone_sign_in_screen.dart';
@@ -36,8 +37,8 @@ abstract class AppRouter {
         return _createRoute(const EnterPhoneScreen(), settings);
       case MyRoutes.otpScreen:
         return _createRoute(const OtpScreen(), settings);
-        case MyRoutes.homeScreen:
-        return _createRoute(const HomeScreen(), settings);
+        case MyRoutes.navigationScreen:
+        return _createRoute(const NavigationScreen(), settings);
       default:
         return null;
     }

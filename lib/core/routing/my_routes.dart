@@ -6,6 +6,6 @@ abstract class MyRoutes {
   static const String phoneSignInScreen = "phoneSignIn";
   static const String enterPhoneScreen = "enterPhone";
   static const String otpScreen = "otp";
-  static const String homeScreen = "home";
+  static const String navigationScreen = "navigation";
 
 }

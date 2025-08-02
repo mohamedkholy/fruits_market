@@ -60,6 +60,9 @@ flutter:
   - family: search
     fonts:
     - asset: assets/fonts/icons/Search.ttf
+  - family: navigation
+    fonts:
+    - asset: assets/fonts/icons/NavigationIcons.ttf
   - family: Poppins
     fonts:
       - asset: assets/fonts/Poppins-Thin.ttf
