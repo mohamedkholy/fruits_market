@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/core/widgets/my_button.dart';
-import 'package:fruits_market/core/widgets/my_phone_number_form_field.dart';
 import 'package:fruits_market/features/otp/ui/widgets/not_received_layout.dart';
 import 'package:fruits_market/features/otp/ui/widgets/otp_field.dart';
 

@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
-import 'package:fruits_market/features/login/ui/login_screen.dart';
 
 class SignInTextspan extends StatelessWidget {
   const SignInTextspan({super.key});

@@ -30,7 +30,10 @@ class LoginScreen extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: GestureDetector(
                         onTap: () {
-                          // Navigator.pushReplacementNamed(context, MyRoutes.homeScreen);
+                          Navigator.pushReplacementNamed(
+                            context,
+                            MyRoutes.homeScreen,
+                          );
                         },
                         child: const Icon(Icons.clear, size: 24),
                       ),
@@ -58,7 +61,10 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 52),
                     SignInButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, MyRoutes.phoneSignInScreen);
+                        Navigator.pushNamed(
+                          context,
+                          MyRoutes.phoneSignInScreen,
+                        );
                       },
                       icon: Assets.imagesSvgPhone,
                       label: "Sign in with Phone Number",
