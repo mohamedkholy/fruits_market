@@ -4,7 +4,7 @@ import 'package:fruits_market/core/helpers/shared_preferences_keys.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/widgets/my_button.dart';
 import 'package:fruits_market/features/on_boarding/ui/widgets/on_boarding_page_view.dart';
-import 'package:fruits_market/features/on_boarding/ui/widgets/page_indicator.dart';
+import 'package:fruits_market/core/widgets/page_indicator.dart';
 import 'package:fruits_market/features/on_boarding/ui/widgets/skip_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -47,7 +47,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         },
                       ),
                       const SizedBox(height: 50),
-                      PageIndicator(selectedPageIndex: _selectedPageIndex),
+                      PageIndicator(selectedPageIndex: _selectedPageIndex, size: 12,length: 3,),
                       const SizedBox(height: 90),
                       MyButton(
                         text: _selectedPageIndex == 2 ? "Get Started" : "Next",

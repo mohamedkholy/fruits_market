@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/di/dependency_injection.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/features/enter_phone/ui/enter_phone_screen.dart';
+import 'package:fruits_market/features/home/ui/home_screen.dart';
 import 'package:fruits_market/features/login/ui/login_screen.dart';
 import 'package:fruits_market/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:fruits_market/features/otp/ui/otp_screen.dart';
@@ -35,6 +36,8 @@ abstract class AppRouter {
         return _createRoute(const EnterPhoneScreen(), settings);
       case MyRoutes.otpScreen:
         return _createRoute(const OtpScreen(), settings);
+        case MyRoutes.homeScreen:
+        return _createRoute(const HomeScreen(), settings);
       default:
         return null;
     }

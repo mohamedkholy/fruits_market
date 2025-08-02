@@ -54,6 +54,12 @@ flutter:
 
 
   fonts:
+  - family: settings
+    fonts:
+    - asset: assets/fonts/icons/Settings.ttf
+  - family: search
+    fonts:
+    - asset: assets/fonts/icons/Search.ttf
   - family: Poppins
     fonts:
       - asset: assets/fonts/Poppins-Thin.ttf

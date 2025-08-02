@@ -18,9 +18,13 @@ class SplashCubit extends Cubit<SplashState> {
         true;
 
     if (isFirstLaunch) {
-      emit(SplashOnboarding());
+      emit((SplashOnboarding()));
     } else {
-      emit((SplashLogin()));
+      if (false) {
+        emit((SplashLogin()));
+      } else {
+        emit((SplashHome()));
+      }
     }
   }
 }
