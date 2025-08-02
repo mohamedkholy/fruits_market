@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                         onTap: () {
                           Navigator.pushReplacementNamed(
                             context,
-                            MyRoutes.homeScreen,
+                            MyRoutes.navigationScreen,
                           );
                         },
                         child: const Icon(Icons.clear, size: 24),
