@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/di/dependency_injection.dart';
+import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/seller.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/features/enter_phone/ui/enter_phone_screen.dart';
@@ -8,6 +9,7 @@ import 'package:fruits_market/features/navigation/ui/navigation_screen.dart';
 import 'package:fruits_market/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:fruits_market/features/otp/ui/otp_screen.dart';
 import 'package:fruits_market/features/phone_sign_in/ui/phone_sign_in_screen.dart';
+import 'package:fruits_market/features/product_details/ui/product_details_screen.dart';
 import 'package:fruits_market/features/seller/ui/seller_screen.dart';
 import 'package:fruits_market/features/sign_up/ui/sign_up_screen.dart';
 import 'package:fruits_market/features/splash/logic/splash_cubit.dart';
@@ -38,10 +40,18 @@ abstract class AppRouter {
         return _createRoute(const EnterPhoneScreen(), settings);
       case MyRoutes.otpScreen:
         return _createRoute(const OtpScreen(), settings);
-        case MyRoutes.navigationScreen:
+      case MyRoutes.navigationScreen:
         return _createRoute(const NavigationScreen(), settings);
-        case MyRoutes.sellerScreen:
-        return _createRoute(SellerScreen(seller: settings.arguments as Seller), settings);
+      case MyRoutes.sellerScreen:
+        return _createRoute(
+          SellerScreen(seller: settings.arguments as Seller),
+          settings,
+        );
+      case MyRoutes.productDetailsScreen:
+        return _createRoute(
+          ProductDetailsScreen(product: settings.arguments as Product),
+          settings,
+        );
       default:
         return null;
     }
