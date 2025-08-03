@@ -16,10 +16,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        dividerColor: Colors.transparent,
         appBarTheme: const AppBarTheme(color: Colors.white),
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "poppins",
         primaryColor: MyColors.primaryColor,
+        primaryColorLight: MyColors.primaryColor.withAlpha(100),
+        primaryColorDark: MyColors.primaryColor.withAlpha(200),
+        radioTheme: const RadioThemeData(
+          fillColor: WidgetStatePropertyAll(MyColors.primaryColor),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.getRoutes,

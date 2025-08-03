@@ -8,5 +8,5 @@ abstract class MyRoutes {
   static const String otpScreen = "otp";
   static const String navigationScreen = "navigation";
   static const String sellerScreen = "seller";
-
+  static const String productDetailsScreen = "productDetails";
 }

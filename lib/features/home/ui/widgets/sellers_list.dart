@@ -44,7 +44,7 @@ class _SellersListState extends State<SellersList> {
       mainProduct: 'sushi',
       deliveryTime: '40-50 min',
     ),
-    const Seller(
+     Seller(
       id: 's4',
       name: 'Vegan Delight',
       imageUrl: 'https://example.com/images/vegan_delight.jpg',

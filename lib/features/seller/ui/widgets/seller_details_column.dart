@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/seller.dart';
-import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/features/seller/ui/widgets/seller_delivery_details.dart';
 

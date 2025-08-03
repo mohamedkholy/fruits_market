@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:fruits_market/assets/assets.dart';
 import 'package:fruits_market/core/models/seller.dart';
 import 'package:fruits_market/core/widgets/my_circular_avatar.dart';
 import 'package:fruits_market/features/seller/ui/widgets/seller_details_column.dart';

@@ -1,14 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
 import 'package:fruits_market/core/models/seller.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/features/seller/ui/widgets/app_bar_background.dart';
 import 'package:fruits_market/features/seller/ui/widgets/categories_row.dart';
 import 'package:fruits_market/features/seller/ui/widgets/products_list.dart';
-import 'package:fruits_market/features/seller/ui/widgets/seller_info.dart';
 
 class SellerScreen extends StatelessWidget {
   final Seller seller;

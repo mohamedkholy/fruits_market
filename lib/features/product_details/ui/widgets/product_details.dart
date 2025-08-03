@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 
-class ProductDetailsColum extends StatelessWidget {
+class ProductDetails extends StatelessWidget {
   final Product product;
-  const ProductDetailsColum({super.key, required this.product});
+  const ProductDetails({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(product.name, style: MyTextStyles.font16BoldBlack),
-        const SizedBox(height: 5),
         Row(
           children: [
+            Text(product.name, style: MyTextStyles.font18BoldBlack),
+            const Spacer(),
             Text(
               "${product.discountedPrice} KD",
               style: MyTextStyles.font14BoldBlack.copyWith(
@@ -26,26 +26,32 @@ class ProductDetailsColum extends StatelessWidget {
               Expanded(
                 child: Text(
                   "${product.price} KD",
-                  style: MyTextStyles.font14BoldBlack.copyWith(
+                  style: MyTextStyles.font16BoldBlack.copyWith(
                     decoration: TextDecoration.lineThrough,
                   ),
                 ),
               ),
           ],
         ),
-        const SizedBox(height: 10),
-        if (product.discount > 0)
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.green.withAlpha(25),
-              borderRadius: BorderRadius.circular(25),
+        const SizedBox(height: 12),
+        Text(product.description, style: MyTextStyles.font14RegularBlack),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            RichText(
+              text: TextSpan(
+                text: "sell per: ",
+                style: MyTextStyles.font18BoldBlack,
+                children: [
+                  TextSpan(
+                    text: product.sellPer,
+                    style: MyTextStyles.font16BoldBlue,
+                  ),
+                ],
+              ),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: Text(
-              "${product.discount}% off",
-              style: MyTextStyles.font14MediumBlack,
-            ),
-          ),
+          ],
+        ),
       ],
     );
   }
