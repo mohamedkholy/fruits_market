@@ -29,6 +29,12 @@ class _MyWidgetState extends State<AdsLayout> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -52,7 +58,7 @@ class _MyWidgetState extends State<AdsLayout> {
         PageIndicator(
           selectedPageIndex: _selectedPageIndex,
           size: 10,
-          length: ads.length-1,
+          length: ads.length - 1,
         ),
       ],
     );
@@ -62,15 +68,17 @@ class _MyWidgetState extends State<AdsLayout> {
     Future.delayed(
       Duration(milliseconds: _selectedPageIndex == ads.length - 2 ? 500 : 3000),
     ).then((value) {
-      if (_selectedPageIndex == ads.length - 1) {
-        _controller.jumpToPage(0);
-        startTimer();
-      } else {
-        _controller.nextPage(
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.easeInOut,
-        );
-        startTimer();
+      if (mounted) {
+        if (_selectedPageIndex == ads.length - 1) {
+          _controller.jumpToPage(0);
+          startTimer();
+        } else {
+          _controller.nextPage(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+          );
+          startTimer();
+        }
       }
     });
   }

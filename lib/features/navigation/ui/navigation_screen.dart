@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/features/basket/ui/basket_screen.dart';
 import 'package:fruits_market/features/home/ui/home_screen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -15,7 +16,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final List<Widget> _pages = [
     const HomeScreen(),
     Container(color: Colors.red),
-    Container(color: Colors.green),
+    const BasketScreen(),
     Container(color: Colors.blue),
     Container(color: Colors.purple),
   ];
@@ -65,7 +66,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
               GButton(
                 iconSize: _currentIndex == 2 ? 22 : 32,
                 icon: const IconData(0xe814, fontFamily: "navigation"),
-                text: 'Cart',
+                text: 'Basket',
               ),
               GButton(
                 iconSize: _currentIndex == 3 ? 18 : 27,

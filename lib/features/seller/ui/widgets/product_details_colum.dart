@@ -13,25 +13,23 @@ class ProductDetailsColum extends StatelessWidget {
       children: [
         Text(product.name, style: MyTextStyles.font16BoldBlack),
         const SizedBox(height: 5),
-        Row(
-          children: [
-            Text(
-              "${product.discountedPrice} KD",
-              style: MyTextStyles.font14BoldBlack.copyWith(
-                color: product.discount > 0 ? Colors.green : Colors.black,
-              ),
+        RichText(
+          text: TextSpan(
+            text:
+                "${((product.price - product.price * product.discount)).toStringAsFixed(2)} KD    ",
+            style: MyTextStyles.font14BoldBlack.copyWith(
+              color: product.discount > 0 ? Colors.green : Colors.black,
             ),
-            const SizedBox(width: 10),
-            if (product.discount > 0)
-              Expanded(
-                child: Text(
-                  "${product.price} KD",
+            children: [
+              if (product.discount > 0)
+                TextSpan(
+                  text: "${(product.price).toStringAsFixed(2)} KD",
                   style: MyTextStyles.font14BoldBlack.copyWith(
                     decoration: TextDecoration.lineThrough,
                   ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
         const SizedBox(height: 10),
         if (product.discount > 0)

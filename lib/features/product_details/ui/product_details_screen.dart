@@ -32,7 +32,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
               onPressed: () {},
               icon: const Icon(Icons.add_shopping_cart, size: 22),
-              label: const Text("Add To Cart"),
+              label: const Text("Add To Basket"),
             ),
             appBar: ProductDetailsAppBar(productName: widget.product.name),
             body: SafeArea(
