@@ -19,6 +19,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final _pageViewController = PageController();
   int _selectedPageIndex = 0;
 
+
+  @override
+  void dispose() {
+    _pageViewController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
