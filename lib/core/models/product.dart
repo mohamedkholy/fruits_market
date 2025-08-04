@@ -13,6 +13,8 @@ class Product {
   final String sellPer;
   final List<String> availableWeights;
   final List<ProductAddOn> addOns;
+  final String sellerId;
+  final String sellerName;
 
   const Product({
     required this.id,
@@ -27,6 +29,8 @@ class Product {
     required this.sellPer,
     required this.availableWeights,
     required this.addOns,
+    required this.sellerId,
+    required this.sellerName,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
@@ -45,23 +49,27 @@ class Product {
       addOns: (json['add_ons'] as List)
           .map((e) => ProductAddOn.fromJson(e))
           .toList(),
+      sellerId: json['seller_id'],
+      sellerName: json['seller_name'],
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'image_url': imageUrl,
-        'price': price,
-        'discount': discount,
-        'description': description,
-        'is_available': isAvailable,
-        'category': category,
-        'rating': rating,
-        'sell_per': sellPer,
-        'available_weights': availableWeights,
-        'add_ons': addOns.map((e) => e.toJson()).toList(),
-      };
+    'id': id,
+    'name': name,
+    'image_url': imageUrl,
+    'price': price,
+    'discount': discount,
+    'description': description,
+    'is_available': isAvailable,
+    'category': category,
+    'rating': rating,
+    'sell_per': sellPer,
+    'available_weights': availableWeights,
+    'add_ons': addOns.map((e) => e.toJson()).toList(),
+    'seller_id': sellerId,
+    'seller_name': sellerName,
+  };
 
-  double get discountedPrice => price - (price * discount / 100);
+  double get discountedPrice => price - (price * discount);
 }

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/product_add_on.dart';
-import 'package:fruits_market/features/seller/ui/widgets/product_item.dart';
+import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/features/favorites/ui/widgets/favorites_item.dart';
 
-class ProductsList extends StatelessWidget {
-  final List<Product> products;
-  const ProductsList({super.key, required this.products});
-   final List<Product> sampleProducts = const [
+class FavoritesScreen extends StatelessWidget {
+  const FavoritesScreen({super.key});
+
+  final List<Product> sampleProducts = const [
     Product(
-      sellerName: "",
-      sellerId: "",
+      sellerName: "Pizza Hub",
+      sellerId: "s2",
       id: 'p1',
       name: 'Pizza Margherita',
       imageUrl: 'https://example.com/images/pizza.jpg',
@@ -27,8 +28,8 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
+      sellerName: "Sushi Corner",
+      sellerId: "s3",
       id: 'p2',
       name: 'Sushi Platter',
       imageUrl: 'https://example.com/images/sushi.jpg',
@@ -46,8 +47,8 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
+      sellerName: "Burger Palace",
+      sellerId: "s1",
       id: 'p3',
       name: 'Grilled Chicken Sandwich',
       imageUrl: 'https://example.com/images/chicken_sandwich.jpg',
@@ -65,8 +66,8 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
+      sellerName: "Burger Palace",
+      sellerId: "s1",
       id: 'p4',
       name: 'Chocolate Milkshake',
       imageUrl: 'https://example.com/images/milkshake.jpg',
@@ -84,8 +85,8 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
+      sellerName: "Vegan Delight",
+      sellerId: "s4",
       id: 'p5',
       name: 'Caesar Salad',
       imageUrl: 'https://example.com/images/salad.jpg',
@@ -103,9 +104,9 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
-      id: 'p5',
+      sellerName: "Vegan Delight",
+      sellerId: "s4",
+      id: 'p6',
       name: 'Caesar Salad',
       imageUrl: 'https://example.com/images/salad.jpg',
       price: 7.5,
@@ -122,9 +123,9 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
-      id: 'p5',
+      sellerName: "Vegan Delight",
+      sellerId: "s4",
+      id: 'p7',
       name: 'Caesar Salad',
       imageUrl: 'https://example.com/images/salad.jpg',
       price: 7.5,
@@ -141,9 +142,9 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
-      id: 'p5',
+      sellerName: "Vegan Delight",
+      sellerId: "s4",
+      id: 'p8',
       name: 'Caesar Salad',
       imageUrl: 'https://example.com/images/salad.jpg',
       price: 7.5,
@@ -160,9 +161,9 @@ class ProductsList extends StatelessWidget {
       ],
     ),
     Product(
-      sellerName: "",
-      sellerId: "",
-      id: 'p5',
+      sellerName: "Vegan Delight",
+      sellerId: "s4",
+      id: 'p9',
       name: 'Caesar Salad',
       imageUrl: 'https://example.com/images/salad.jpg',
       price: 7.5,
@@ -182,10 +183,54 @@ class ProductsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (context, index) => ProductItem(product: sampleProducts[index]),
-        childCount: sampleProducts.length,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Favorites', style: MyTextStyles.font24BoldPrimary),
+        centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1),
+          child: Container(color: Colors.grey[300], height: 1.0),
+        ),
+      ),
+      body: SafeArea(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1200),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: MediaQuery.of(context).size.width < 800
+                  ? ListView.builder(
+                      itemCount: sampleProducts.length,
+                      itemBuilder: (context, index) {
+                        return FavoritesItem(product: sampleProducts[index]);
+                      },
+                    )
+                  : SingleChildScrollView(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ...List.generate(
+                            2,
+                            (index) => Expanded(
+                              child: Column(
+                                children: [
+                                  for (
+                                    int i = index;
+                                    i < sampleProducts.length;
+                                    i += 2
+                                  )
+                                    FavoritesItem(product: sampleProducts[i]),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+            ),
+          ),
+        ),
       ),
     );
   }

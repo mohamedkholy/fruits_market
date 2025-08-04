@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/features/favorites/ui/widgets/product_price_text.dart';
 
 class ProductDetails extends StatelessWidget {
   final Product product;
@@ -15,22 +16,7 @@ class ProductDetails extends StatelessWidget {
           children: [
             Text(product.name, style: MyTextStyles.font18BoldBlack),
             const Spacer(),
-            Text(
-              "${product.discountedPrice} KD",
-              style: MyTextStyles.font14BoldBlack.copyWith(
-                color: product.discount > 0 ? Colors.green : Colors.black,
-              ),
-            ),
-            const SizedBox(width: 10),
-            if (product.discount > 0)
-              Expanded(
-                child: Text(
-                  "${product.price} KD",
-                  style: MyTextStyles.font16BoldBlack.copyWith(
-                    decoration: TextDecoration.lineThrough,
-                  ),
-                ),
-              ),
+            ProductPriceText(product: product),
           ],
         ),
         const SizedBox(height: 12),
