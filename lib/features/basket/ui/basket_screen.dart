@@ -18,6 +18,8 @@ class _BasketScreenState extends State<BasketScreen> {
   final List<BasketItem> sampleBasketItems = const [
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p1',
         name: 'Pizza Margherita',
         imageUrl: 'https://example.com/images/pizza.jpg',
@@ -38,6 +40,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p2',
         name: 'Sushi Platter',
         imageUrl: 'https://example.com/images/sushi.jpg',
@@ -58,6 +62,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p3',
         name: 'Grilled Chicken Sandwich',
         imageUrl: 'https://example.com/images/chicken_sandwich.jpg',
@@ -78,6 +84,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p4',
         name: 'Chocolate Milkshake',
         imageUrl: 'https://example.com/images/milkshake.jpg',
@@ -98,6 +106,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p5',
         name: 'Caesar Salad',
         imageUrl: 'https://example.com/images/salad.jpg',
@@ -118,6 +128,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p5',
         name: 'Caesar Salad',
         imageUrl: 'https://example.com/images/salad.jpg',
@@ -138,6 +150,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p5',
         name: 'Caesar Salad',
         imageUrl: 'https://example.com/images/salad.jpg',
@@ -158,6 +172,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p5',
         name: 'Caesar Salad',
         imageUrl: 'https://example.com/images/salad.jpg',
@@ -178,6 +194,8 @@ class _BasketScreenState extends State<BasketScreen> {
     ),
     BasketItem(
       product: Product(
+        sellerName: "",
+        sellerId: "",
         id: 'p5',
         name: 'Caesar Salad',
         imageUrl: 'https://example.com/images/salad.jpg',

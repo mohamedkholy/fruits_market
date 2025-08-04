@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/features/basket/ui/basket_screen.dart';
+import 'package:fruits_market/features/favorites/ui/favorites_screen.dart';
 import 'package:fruits_market/features/home/ui/home_screen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -17,12 +18,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
     const HomeScreen(),
     Container(color: Colors.red),
     const BasketScreen(),
-    Container(color: Colors.blue),
+    const FavoritesScreen(),
     Container(color: Colors.purple),
   ];
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final isNarrow = MediaQuery.of(context).size.width < 400;
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: ClipRRect(
@@ -47,6 +49,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             activeColor: MyColors.primaryColor,
             tabBackgroundColor: Colors.white,
             selectedIndex: _currentIndex,
+
             onTabChange: (index) {
               setState(() {
                 _currentIndex = index;
@@ -56,27 +59,27 @@ class _NavigationScreenState extends State<NavigationScreen> {
               GButton(
                 iconSize: _currentIndex == 0 ? 18 : 27,
                 icon: const IconData(0xe817, fontFamily: "navigation"),
-                text: 'Home',
+                text: isNarrow ? '' : 'Home',
               ),
               GButton(
                 iconSize: _currentIndex == 1 ? 18 : 27,
                 icon: const IconData(0xe810, fontFamily: "navigation"),
-                text: 'Orders',
+                text: isNarrow ? '' : 'Orders',
               ),
               GButton(
                 iconSize: _currentIndex == 2 ? 22 : 32,
                 icon: const IconData(0xe814, fontFamily: "navigation"),
-                text: 'Basket',
+                text: isNarrow ? '' : 'Basket',
               ),
               GButton(
                 iconSize: _currentIndex == 3 ? 18 : 27,
                 icon: const IconData(0xe812, fontFamily: "navigation"),
-                text: 'Favorites',
+                text: isNarrow ? '' : 'Favorites',
               ),
               GButton(
                 iconSize: _currentIndex == 4 ? 18 : 27,
                 icon: const IconData(0xe811, fontFamily: "navigation"),
-                text: 'Profile',
+                text: isNarrow ? '' : 'Profile',
               ),
             ],
           ),
