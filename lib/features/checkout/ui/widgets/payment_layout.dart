@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/core/widgets/shadow_container.dart';
-import 'package:fruits_market/features/checkout/ui/widgets/order_Details.dart';
+import 'package:fruits_market/features/checkout/ui/widgets/order_details.dart';
 import 'package:fruits_market/features/checkout/ui/widgets/select_payment.dart';
 
 class PaymentLayout extends StatelessWidget {

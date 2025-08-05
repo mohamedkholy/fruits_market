@@ -106,7 +106,7 @@ class OrderDetails extends StatelessWidget {
         const SizedBox(height: 10),
         Row(
           children: [
-            Text("Total items", style: MyTextStyles.font16MediumGrey),
+            const Text("Total items", style: MyTextStyles.font16MediumGrey),
             const Spacer(),
             Text(
               "${sampleBasketItems.length} items",
@@ -117,7 +117,7 @@ class OrderDetails extends StatelessWidget {
         const SizedBox(height: 10),
         Row(
           children: [
-            Text("Subtotal", style: MyTextStyles.font16MediumGrey),
+            const Text("Subtotal", style: MyTextStyles.font16MediumGrey),
             const Spacer(),
             Text(
               "${sampleBasketItems.fold(0.0, (previousValue, element) => previousValue + element.product.discountedPrice * element.quantity)}",

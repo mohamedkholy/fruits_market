@@ -1,3 +1,4 @@
+import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/product_add_on.dart';
@@ -199,35 +200,13 @@ class FavoritesScreen extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 1200),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 10),
-              child: MediaQuery.sizeOf(context).width < 800
-                  ? ListView.builder(
-                      itemCount: sampleProducts.length,
-                      itemBuilder: (context, index) {
-                        return FavoritesItem(product: sampleProducts[index]);
-                      },
-                    )
-                  : SingleChildScrollView(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ...List.generate(
-                            2,
-                            (index) => Expanded(
-                              child: Column(
-                                children: [
-                                  for (
-                                    int i = index;
-                                    i < sampleProducts.length;
-                                    i += 2
-                                  )
-                                    FavoritesItem(product: sampleProducts[i]),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+              child: DynamicHeightGridView(
+                crossAxisCount: MediaQuery.sizeOf(context).width < 800 ? 1 : 2,
+                itemCount: sampleProducts.length,
+                builder: (context, index) {
+                  return FavoritesItem(product: sampleProducts[index]);
+                },
+              ),
             ),
           ),
         ),
