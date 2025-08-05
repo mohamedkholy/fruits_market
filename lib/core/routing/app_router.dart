@@ -3,6 +3,8 @@ import 'package:fruits_market/core/di/dependency_injection.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/seller.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
+import 'package:fruits_market/features/checkout/ui/checkout_screen.dart';
+import 'package:fruits_market/features/checkout/ui/widgets/order_placement_status_layout.dart';
 import 'package:fruits_market/features/enter_phone/ui/enter_phone_screen.dart';
 import 'package:fruits_market/features/login/ui/login_screen.dart';
 import 'package:fruits_market/features/navigation/ui/navigation_screen.dart';
@@ -52,6 +54,10 @@ abstract class AppRouter {
           ProductDetailsScreen(product: settings.arguments as Product),
           settings,
         );
+      case MyRoutes.checkoutScreen:
+        return _createRoute(const CheckoutScreen(), settings);
+      case MyRoutes.orderPlacementScreen:
+        return _createRoute(const OrderPlacementStatusLayout(), settings);
       default:
         return null;
     }

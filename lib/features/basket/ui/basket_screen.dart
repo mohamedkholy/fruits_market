@@ -256,7 +256,7 @@ class _BasketScreenState extends State<BasketScreen> {
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 10),
-              child: MediaQuery.of(context).size.width > 700
+              child: MediaQuery.sizeOf(context).width > 700
                   ? Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

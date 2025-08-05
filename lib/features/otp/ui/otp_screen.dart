@@ -66,7 +66,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 50),
-                    MediaQuery.of(context).size.width < 360
+                   MediaQuery.sizeOf(context).width < 360
                         ? FittedBox(
                             child: OtpField(otpController: _otpController),
                           )

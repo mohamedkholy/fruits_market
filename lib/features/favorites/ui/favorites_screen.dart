@@ -199,7 +199,7 @@ class FavoritesScreen extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 1200),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 10),
-              child: MediaQuery.of(context).size.width < 800
+              child: MediaQuery.sizeOf(context).width < 800
                   ? ListView.builder(
                       itemCount: sampleProducts.length,
                       itemBuilder: (context, index) {

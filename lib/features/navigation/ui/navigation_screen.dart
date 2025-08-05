@@ -24,7 +24,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final isNarrow = MediaQuery.of(context).size.width < 400;
+    final isNarrow =MediaQuery.sizeOf(context).width < 400;
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: ClipRRect(
@@ -37,7 +37,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           color: MyColors.primaryColor,
           padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
           child: GNav(
-            mainAxisAlignment: MediaQuery.of(context).size.width < 600
+            mainAxisAlignment: MediaQuery.sizeOf(context).width < 600
                 ? MainAxisAlignment.spaceBetween
                 : MainAxisAlignment.spaceEvenly,
             tabBorderRadius: 35,
