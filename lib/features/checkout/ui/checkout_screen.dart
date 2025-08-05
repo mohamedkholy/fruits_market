@@ -44,7 +44,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             },
             icon: const Icon(Icons.arrow_back_ios_new),
           ),
-          title: Text("Checkout", style: MyTextStyles.font24BoldPrimary),
+          title: const Text("Checkout", style: MyTextStyles.font24BoldPrimary),
           centerTitle: true,
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(1),

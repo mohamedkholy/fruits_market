@@ -4,6 +4,7 @@ import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/features/basket/ui/basket_screen.dart';
 import 'package:fruits_market/features/favorites/ui/favorites_screen.dart';
 import 'package:fruits_market/features/home/ui/home_screen.dart';
+import 'package:fruits_market/features/orders/ui/orders_screen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> {
   final List<Widget> _pages = [
     const HomeScreen(),
-    Container(color: Colors.red),
+     OrdersScreen(),
     const BasketScreen(),
     const FavoritesScreen(),
     Container(color: Colors.purple),

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
-import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
-import 'package:fruits_market/core/widgets/my_button.dart';
-import 'package:fruits_market/features/checkout/ui/widgets/failure_layout.dart';
 import 'package:fruits_market/features/checkout/ui/widgets/success_layout.dart';
 
 class OrderPlacementStatusLayout extends StatelessWidget {
