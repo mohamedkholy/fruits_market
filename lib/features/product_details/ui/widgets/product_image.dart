@@ -19,7 +19,10 @@ class ProductImage extends StatelessWidget {
           aspectRatio: 388 / 232,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(25),
-            child: Image.asset(Assets.productExample, fit: BoxFit.cover),
+            child: Image.asset(
+              Assets.imagesPngProductExample,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         if (discount > 0)

@@ -9,6 +9,18 @@ abstract class MyTextStyles {
     color: MyColors.grey,
   );
 
+  static const TextStyle font16MediumGrey = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.medium,
+    color: MyColors.grey,
+  );
+
+  static const TextStyle font16MediumPrimary = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.medium,
+    color: MyColors.primaryColor,
+  );
+
   static const TextStyle font14RegularGrey = TextStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.regular,
@@ -68,6 +80,12 @@ abstract class MyTextStyles {
     color: Colors.black,
   );
 
+  static const TextStyle font16RegularBlack = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.black,
+  );
+
   static const TextStyle font14MediumBlack = TextStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.medium,
@@ -115,6 +133,12 @@ abstract class MyTextStyles {
     fontSize: 17,
     fontWeight: FontWeightHelper.regular,
     color: MyColors.grey,
+  );
+
+  static const TextStyle font18BoldPrimary = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.bold,
+    color: MyColors.primaryColor,
   );
 
   static const TextStyle font24BoldPrimary = TextStyle(

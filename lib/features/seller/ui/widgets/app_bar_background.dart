@@ -13,7 +13,7 @@ class AppBarBackground extends StatelessWidget {
       alignment: Alignment.topCenter,
       children: [
         Image.asset(
-          Assets.download,
+          Assets.imagesPngDownload,
           fit: BoxFit.cover,
           width: double.infinity,
           height: 230,

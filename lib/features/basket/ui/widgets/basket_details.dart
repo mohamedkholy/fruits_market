@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 
@@ -61,7 +62,9 @@ class BasketDetails extends StatelessWidget {
                   textStyle: MyTextStyles.font16BoldBlack,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.checkoutScreen);
+                },
                 icon: const Icon(Icons.arrow_forward, size: 22),
                 label: const Text("Checkout"),
               ).animate(
