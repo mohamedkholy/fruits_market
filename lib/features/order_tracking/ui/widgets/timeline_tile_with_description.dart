@@ -45,9 +45,15 @@ class TimelineTileWithDescription extends StatelessWidget {
             ),
           ),
           beforeLineStyle: LineStyle(
-            color: isFinished && !isEqual ? Colors.green : Colors.grey,
+            color: isFinished && (!isEqual || isWide)
+                ? Colors.green
+                : Colors.grey,
           ),
-          afterLineStyle: isEqual ? const LineStyle(color: Colors.green) : null,
+          afterLineStyle: isEqual
+              ? (isWide
+                    ? const LineStyle()
+                    : const LineStyle(color: Colors.green))
+              : null,
         ),
       ),
       isWide

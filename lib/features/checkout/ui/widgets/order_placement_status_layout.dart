@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/widgets/my_app_bar.dart';
-import 'package:fruits_market/features/checkout/ui/widgets/failure_layout.dart';
+import 'package:fruits_market/features/checkout/ui/widgets/success_layout.dart';
 
 class OrderPlacementStatusLayout extends StatelessWidget {
   const OrderPlacementStatusLayout({super.key});
@@ -13,10 +13,7 @@ class OrderPlacementStatusLayout extends StatelessWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 600),
-            child: const SizedBox(
-              width: double.infinity,
-              child: FailureLayout(),
-            ),
+            child: SizedBox(width: double.infinity, child: SuccessLayout()),
           ),
         ),
       ),

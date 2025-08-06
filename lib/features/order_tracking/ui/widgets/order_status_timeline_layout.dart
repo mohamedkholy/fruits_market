@@ -17,16 +17,19 @@ class OrderStatusTimelineLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isWide = MediaQuery.sizeOf(context).width > 850;
-    final orderPosition = orderStatuses.indexWhere(
+    final reversedStatuses = isWide
+        ? orderStatuses
+        : orderStatuses.reversed.toList();
+    final orderPosition = reversedStatuses.indexWhere(
       (element) => element.displayName == order.status.displayName,
     );
     final children = <Widget>[
-      for (int i = orderStatuses.length - 1; i >= 0; i--)
+      for (int i = 0; i < reversedStatuses.length; i++)
         TimelineTileWithDescription(
-          status: orderStatuses[i],
-          isLast: i == 0,
-          isFirst: i == orderStatuses.length - 1,
-          isFinished: orderPosition >= i,
+          status: reversedStatuses[i],
+          isLast: i == reversedStatuses.length - 1,
+          isFirst: i == 0,
+          isFinished: isWide ? orderPosition >= i : orderPosition <= i,
           isEqual: orderPosition == i,
           isWide: isWide,
         ),

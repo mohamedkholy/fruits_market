@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/models/order.dart';
+import 'package:fruits_market/core/models/order_status.dart';
+import 'package:fruits_market/core/models/payment_method.dart';
+import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/core/widgets/my_button.dart';
 
 class SuccessLayout extends StatelessWidget {
-  const SuccessLayout({super.key});
+  SuccessLayout({super.key});
+  Order order = Order(
+    id: "#243188",
+    totalAmount: 37.0,
+    date: DateTime(2025, 9, 9),
+    itemCount: 4,
+    status: OrderStatus.delivering,
+    paymentMethod: PaymentMethod.credit,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +35,8 @@ class SuccessLayout extends StatelessWidget {
           style: MyTextStyles.font24BoldPrimary,
         ),
         const SizedBox(height: 20),
-        const Text(
-          "Your order code: #243188",
+        Text(
+          "Your order code: ${order.id}",
           textAlign: TextAlign.center,
           style: MyTextStyles.font16MediumGrey,
         ),
@@ -55,7 +67,11 @@ class SuccessLayout extends StatelessWidget {
               side: const BorderSide(color: MyColors.primaryColor),
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacementNamed(
+                context,
+                MyRoutes.orderTrackingScreen,
+                arguments: order,
+              );
             },
             child: const Text("Track Order"),
           ),

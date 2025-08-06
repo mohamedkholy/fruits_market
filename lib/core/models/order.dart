@@ -9,7 +9,7 @@ class Order {
   final OrderStatus status;
   final PaymentMethod paymentMethod;
 
-  Order({
+  const Order({
     required this.id,
     required this.date,
     required this.itemCount,
