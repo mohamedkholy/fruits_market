@@ -1,27 +1,20 @@
-enum OrderStatus {
-  delivering,
-  finished,
-  canceled,
-  working,
-  delivered,
-  newOrder,
-}
+enum OrderStatus { canceled,delivering, shipped, confirmed, delivered, placed }
 
 extension OrderStatusExtension on OrderStatus {
   String get displayName {
     switch (this) {
       case OrderStatus.delivering:
         return 'Delivering';
-      case OrderStatus.finished:
-        return 'Finished';
+      case OrderStatus.shipped:
+        return 'Shipped';
       case OrderStatus.canceled:
         return 'Canceled';
-      case OrderStatus.working:
-        return 'Working';
+      case OrderStatus.confirmed:
+        return 'Confirmed';
       case OrderStatus.delivered:
         return 'Delivered';
-      case OrderStatus.newOrder:
-        return 'New';
+      case OrderStatus.placed:
+        return 'Placed';
     }
   }
 
@@ -29,16 +22,16 @@ extension OrderStatusExtension on OrderStatus {
     switch (status.toLowerCase()) {
       case 'delivering':
         return OrderStatus.delivering;
-      case 'finished':
-        return OrderStatus.finished;
+      case 'shipped':
+        return OrderStatus.shipped;
       case 'canceled':
         return OrderStatus.canceled;
-      case 'working':
-        return OrderStatus.working;
+      case 'confirmed':
+        return OrderStatus.confirmed;
       case 'delivered':
         return OrderStatus.delivered;
-      case 'new':
-        return OrderStatus.newOrder;
+      case 'placed':
+        return OrderStatus.placed;
       default:
         throw ArgumentError('Unknown status: $status');
     }

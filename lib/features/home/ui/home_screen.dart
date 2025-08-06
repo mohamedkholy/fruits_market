@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/features/home/ui/widgets/ads_layout.dart';
 import 'package:fruits_market/features/home/ui/widgets/categories_row.dart';
 import 'package:fruits_market/features/home/ui/widgets/sellers_list.dart';
@@ -12,15 +13,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Container(color: Colors.grey[300], height: 1.0),
-        ),
-        title: const Text(
-          "Fruit Market",
-          style: MyTextStyles.font24BoldPrimary,
-        ),
+      appBar: MyAppBar(
+        title: "Fruit Market",
         actions: [
           IconButton(
             onPressed: () {},

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/di/dependency_injection.dart';
+import 'package:fruits_market/core/models/order.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/seller.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
@@ -9,6 +10,7 @@ import 'package:fruits_market/features/enter_phone/ui/enter_phone_screen.dart';
 import 'package:fruits_market/features/login/ui/login_screen.dart';
 import 'package:fruits_market/features/navigation/ui/navigation_screen.dart';
 import 'package:fruits_market/features/on_boarding/ui/on_boarding_screen.dart';
+import 'package:fruits_market/features/order_tracking/ui/order_tracking_screen.dart';
 import 'package:fruits_market/features/otp/ui/otp_screen.dart';
 import 'package:fruits_market/features/phone_sign_in/ui/phone_sign_in_screen.dart';
 import 'package:fruits_market/features/product_details/ui/product_details_screen.dart';
@@ -58,6 +60,8 @@ abstract class AppRouter {
         return _createRoute(const CheckoutScreen(), settings);
       case MyRoutes.orderPlacementScreen:
         return _createRoute(const OrderPlacementStatusLayout(), settings);
+      case MyRoutes.orderTrackingScreen:
+        return _createRoute(OrderTrackingScreen(order: settings.arguments as Order), settings);
       default:
         return null;
     }

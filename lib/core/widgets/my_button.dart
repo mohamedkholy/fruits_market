@@ -6,15 +6,22 @@ class MyButton extends StatelessWidget {
   final void Function() onPressed;
   final String text;
   final double width;
-  const MyButton({super.key,required this.onPressed, required this.text, this.width = double.infinity});
+  final Color? color;
+  const MyButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+    this.width = double.infinity,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style:  ButtonStyle(
+      style: ButtonStyle(
         minimumSize: WidgetStatePropertyAll(Size(width, 50)),
         foregroundColor: const WidgetStatePropertyAll(Colors.white),
-        backgroundColor: const WidgetStatePropertyAll(MyColors.primaryColor),
+        backgroundColor: WidgetStatePropertyAll(color ?? MyColors.primaryColor),
         textStyle: const WidgetStatePropertyAll(MyTextStyles.font16MediumWhite),
       ),
       onPressed: onPressed,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/assets/assets.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/core/widgets/my_button.dart';
 
 class FailureLayout extends StatelessWidget {
   const FailureLayout({super.key});
@@ -26,17 +27,12 @@ class FailureLayout extends StatelessWidget {
         const SizedBox(height: 50),
         FractionallySizedBox(
           widthFactor: .8,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white,
-              minimumSize: const Size.fromHeight(50),
-              textStyle: MyTextStyles.font16BoldBlack,
-              backgroundColor: Colors.red,
-            ),
+          child: MyButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text("Back"),
+            text: "Back",
+            color: Colors.red,
           ),
         ),
         const SizedBox(height: 70),

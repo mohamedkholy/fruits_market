@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
-import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/core/widgets/my_button.dart';
 import 'package:fruits_market/features/checkout/ui/widgets/checkout_progress.dart';
 import 'package:fruits_market/features/checkout/ui/widgets/delivery_address_layout.dart';
@@ -30,26 +30,17 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         }
       },
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          leading: IconButton(
-            onPressed: () {
-              if (step == 0) {
-                Navigator.pop(context);
-              } else {
-                setState(() {
-                  step--;
-                });
-              }
-            },
-            icon: const Icon(Icons.arrow_back_ios_new),
-          ),
-          title: const Text("Checkout", style: MyTextStyles.font24BoldPrimary),
-          centerTitle: true,
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(1),
-            child: Container(color: Colors.grey[300], height: 1.0),
-          ),
+        appBar: MyAppBar(
+          title: "Checkout",
+          onBackPressed: () {
+            if (step == 0) {
+              Navigator.pop(context);
+            } else {
+              setState(() {
+                step--;
+              });
+            }
+          },
         ),
         body: SafeArea(
           child: Center(

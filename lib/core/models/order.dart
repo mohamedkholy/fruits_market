@@ -1,35 +1,40 @@
 import 'package:fruits_market/core/models/order_status.dart';
+import 'package:fruits_market/core/models/payment_method.dart';
 
 class Order {
-  final String orderId;
-  final double totalPrice;
-  final DateTime orderDate;
+  final String id;
+  final DateTime date;
   final int itemCount;
+  final double totalAmount;
   final OrderStatus status;
+  final PaymentMethod paymentMethod;
 
-  const Order({
-    required this.orderId,
-    required this.totalPrice,
-    required this.orderDate,
+  Order({
+    required this.id,
+    required this.date,
     required this.itemCount,
+    required this.totalAmount,
     required this.status,
+    required this.paymentMethod,
   });
 
   factory Order.fromJson(Map<String, dynamic> json) {
     return Order(
-      orderId: json['order_id'],
-      totalPrice: (json['total_price'] as num).toDouble(),
-      orderDate: DateTime.parse(json['order_date']),
+      id: json['id'],
+      date: DateTime.parse(json['date']),
       itemCount: json['item_count'],
+      totalAmount: (json['total_amount'] as num).toDouble(),
       status: OrderStatusExtension.fromString(json['status']),
+      paymentMethod: PaymentMethodExtension.fromString(json['payment_method']),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'order_id': orderId,
-        'total_price': totalPrice,
-        'order_date': orderDate.toIso8601String(),
+        'id': id,
+        'date': date.toIso8601String(),
         'item_count': itemCount,
+        'total_amount': totalAmount,
         'status': status.displayName,
+        'payment_method': paymentMethod.displayName,
       };
 }
