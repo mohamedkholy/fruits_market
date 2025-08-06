@@ -12,4 +12,6 @@ abstract class MyRoutes {
   static const String checkoutScreen = "checkout";
   static const String orderPlacementScreen = "orderPlacement";
   static const String orderTrackingScreen = "orderTracking";
+  static const String termsConditionsScreen = "termsConditions";
+  
 }

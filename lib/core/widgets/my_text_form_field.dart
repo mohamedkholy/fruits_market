@@ -9,6 +9,9 @@ class MyTextFormField extends StatefulWidget {
   final TextEditingController controller;
   final bool? isPassword;
   final String? Function(String?)? validator;
+  final int? maxLines;
+  final EdgeInsetsGeometry? contentPadding;
+  final bool isRequired;
   const MyTextFormField({
     super.key,
     required this.title,
@@ -16,6 +19,9 @@ class MyTextFormField extends StatefulWidget {
     required this.controller,
     this.isPassword = false,
     this.validator,
+    this.maxLines,
+    this.contentPadding,
+    this.isRequired = true,
   });
 
   @override
@@ -32,22 +38,28 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
         Row(
           children: [
             Text(widget.title, style: MyTextStyles.font14RegularlightGrey),
-            const Text(" *", style: TextStyle(color: Colors.red)),
+            if (widget.isRequired)
+              const Text(" *", style: TextStyle(color: Colors.red)),
           ],
         ),
         const SizedBox(height: 8),
         TextFormField(
+          maxLines: widget.maxLines ?? 1,
           validator:
               widget.validator ??
               (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter the ${widget.title.toLowerCase()}';
+                  if (widget.isRequired) {
+                    return 'Please enter the ${widget.title.toLowerCase()}';
+                  } else {
+                    return null;
+                  }
                 }
                 if (widget.isPassword == true &&
                     !Validator.isValidPassword(value)) {
                   return "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character";
                 }
-                if (value.length < 5) {
+                if (value.length < 5 && widget.isRequired) {
                   return "Please enter a valid ${widget.title.toLowerCase()}";
                 }
                 return null;
@@ -67,7 +79,9 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
                       });
                     },
                   ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 18),
+            contentPadding:
+                widget.contentPadding ??
+                const EdgeInsets.symmetric(horizontal: 18),
             focusedBorder: _buildBorder(MyColors.primaryColor),
             enabledBorder: _buildBorder(Colors.grey.shade300),
             errorBorder: _buildBorder(Colors.red),

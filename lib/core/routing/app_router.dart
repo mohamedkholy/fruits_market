@@ -8,12 +8,14 @@ import 'package:fruits_market/features/checkout/ui/checkout_screen.dart';
 import 'package:fruits_market/features/checkout/ui/widgets/order_placement_status_layout.dart';
 import 'package:fruits_market/features/enter_phone/ui/enter_phone_screen.dart';
 import 'package:fruits_market/features/login/ui/login_screen.dart';
+import 'package:fruits_market/features/navigation/logic/navigation_cubit.dart';
 import 'package:fruits_market/features/navigation/ui/navigation_screen.dart';
 import 'package:fruits_market/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:fruits_market/features/order_tracking/ui/order_tracking_screen.dart';
 import 'package:fruits_market/features/otp/ui/otp_screen.dart';
 import 'package:fruits_market/features/phone_sign_in/ui/phone_sign_in_screen.dart';
 import 'package:fruits_market/features/product_details/ui/product_details_screen.dart';
+import 'package:fruits_market/features/profile/ui/widgets/terms_conditions_layout.dart';
 import 'package:fruits_market/features/seller/ui/seller_screen.dart';
 import 'package:fruits_market/features/sign_up/ui/sign_up_screen.dart';
 import 'package:fruits_market/features/splash/logic/splash_cubit.dart';
@@ -45,7 +47,13 @@ abstract class AppRouter {
       case MyRoutes.otpScreen:
         return _createRoute(const OtpScreen(), settings);
       case MyRoutes.navigationScreen:
-        return _createRoute(const NavigationScreen(), settings);
+        return _createRoute(
+          BlocProvider(
+            create: (context) => getIt<NavigationCubit>(),
+            child: const NavigationScreen(),
+          ),
+          settings,
+        );
       case MyRoutes.sellerScreen:
         return _createRoute(
           SellerScreen(seller: settings.arguments as Seller),
@@ -62,6 +70,9 @@ abstract class AppRouter {
         return _createRoute(const OrderPlacementStatusLayout(), settings);
       case MyRoutes.orderTrackingScreen:
         return _createRoute(OrderTrackingScreen(order: settings.arguments as Order), settings);
+      case MyRoutes.termsConditionsScreen:
+        return _createRoute(const TermsConditionsLayout(), settings);
+      
       default:
         return null;
     }

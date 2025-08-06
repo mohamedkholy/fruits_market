@@ -72,6 +72,12 @@ flutter:
   - family: delete_icon
     fonts:
     - asset: assets/fonts/icons/DeleteIcon.ttf
+  - family: instagram_icon
+    fonts:
+    - asset: assets/fonts/icons/Instagram.ttf
+  - family: youtube_icon
+    fonts:
+    - asset: assets/fonts/icons/Youtube.ttf    
   - family: Poppins
     fonts:
       - asset: assets/fonts/Poppins-Thin.ttf

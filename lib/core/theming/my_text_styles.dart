@@ -92,6 +92,12 @@ abstract class MyTextStyles {
     color: Colors.black,
   );
 
+  static const TextStyle font16MediumBlack = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.medium,
+    color: Colors.black,
+  );
+
   static const TextStyle font14BoldBlack = TextStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.bold,
