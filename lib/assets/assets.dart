@@ -50,6 +50,10 @@ class Assets {
   /// assets/images/png/product_example.png
   static const String imagesPngProductExample = "assets/images/png/product_example.png";
 
+  /// Assets for imagesPngProfileAvatar
+  /// assets/images/png/profile_avatar.png
+  static const String imagesPngProfileAvatar = "assets/images/png/profile_avatar.png";
+
   /// Assets for imagesPngSplash
   /// assets/images/png/splash.png
   static const String imagesPngSplash = "assets/images/png/splash.png";

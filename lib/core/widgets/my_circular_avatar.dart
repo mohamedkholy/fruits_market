@@ -22,7 +22,11 @@ class MyCircularAvatar extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(color: Colors.grey.shade300),
       ),
-      child: ClipOval(child: SvgPicture.asset(Assets.imagesSvgCompanyLogo)),
+      child: ClipOval(
+        child: imageUrl == ""
+            ? SvgPicture.asset(Assets.imagesSvgCompanyLogo)
+            : Image.asset(imageUrl),
+      ),
     );
   }
 }
