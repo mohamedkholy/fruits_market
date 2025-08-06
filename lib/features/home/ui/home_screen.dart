@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
-import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/features/home/ui/widgets/ads_layout.dart';
 import 'package:fruits_market/features/home/ui/widgets/categories_row.dart';
@@ -37,7 +36,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 600),
+            constraints: const BoxConstraints(maxWidth: 1200),
             child: CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(

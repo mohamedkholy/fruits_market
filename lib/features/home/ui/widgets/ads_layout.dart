@@ -39,7 +39,7 @@ class _MyWidgetState extends State<AdsLayout> {
     return Column(
       children: [
         ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 260),
+          constraints: const BoxConstraints(maxWidth: 600),
           child: LayoutBuilder(
             builder: (context, constraints) {
               return AdsViewPage(
