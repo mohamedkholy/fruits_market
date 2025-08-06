@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/product_add_on.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/features/basket/data/models/basket_item.dart';
 import 'package:fruits_market/features/basket/ui/widgets/basket_details.dart';
 import 'package:fruits_market/features/basket/ui/widgets/basket_item_widget.dart';
@@ -241,14 +242,7 @@ class _BasketScreenState extends State<BasketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Basket", style: MyTextStyles.font24BoldPrimary),
-        centerTitle: true,
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Container(color: Colors.grey[300], height: 1.0),
-        ),
-      ),
+      appBar: const MyAppBar(title: "Basket"),
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(

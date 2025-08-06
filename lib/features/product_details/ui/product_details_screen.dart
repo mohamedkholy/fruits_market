@@ -3,8 +3,8 @@ import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/product_add_on.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/features/product_details/ui/widgets/product_details.dart';
-import 'package:fruits_market/features/product_details/ui/widgets/product_details_app_bar.dart';
 import 'package:fruits_market/features/product_details/ui/widgets/product_image.dart';
 import 'package:fruits_market/features/product_details/ui/widgets/select_radio_expansion.dart';
 
@@ -34,7 +34,27 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               icon: const Icon(Icons.add_shopping_cart, size: 22),
               label: const Text("Add To Basket"),
             ),
-            appBar: ProductDetailsAppBar(productName: widget.product.name),
+            appBar: MyAppBar(
+              title: widget.product.name,
+              actions: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.favorite_outline,
+                    size: 28,
+                    color: MyColors.primaryColor,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.share,
+                    size: 28,
+                    color: MyColors.primaryColor,
+                  ),
+                ),
+              ],
+            ),
             body: SafeArea(
               child: SingleChildScrollView(
                 child: Container(

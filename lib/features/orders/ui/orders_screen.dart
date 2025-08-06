@@ -2,7 +2,8 @@ import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/order.dart';
 import 'package:fruits_market/core/models/order_status.dart';
-import 'package:fruits_market/core/theming/my_text_styles.dart';
+import 'package:fruits_market/core/models/payment_method.dart';
+import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/features/orders/ui/widgets/order_item_layout.dart';
 
 class OrdersScreen extends StatelessWidget {
@@ -10,60 +11,59 @@ class OrdersScreen extends StatelessWidget {
 
   final List<Order> orders = [
     Order(
-      orderId: "#243188",
-      totalPrice: 37.0,
-      orderDate: DateTime(2025, 9, 9),
+      id: "#243188",
+      totalAmount: 37.0,
+      date: DateTime(2025, 9, 9),
       itemCount: 4,
       status: OrderStatus.delivering,
+      paymentMethod: PaymentMethod.credit,
     ),
     Order(
-      orderId: "#243189",
-      totalPrice: 42.5,
-      orderDate: DateTime(2025, 9, 10),
+      id: "#243189",
+      totalAmount: 42.5,
+      date: DateTime(2025, 9, 10),
       itemCount: 3,
-      status: OrderStatus.finished,
+      status: OrderStatus.shipped,
+      paymentMethod: PaymentMethod.knet,
     ),
     Order(
-      orderId: "#243190",
-      totalPrice: 25.0,
-      orderDate: DateTime(2025, 9, 11),
+      id: "#243190",
+      totalAmount: 25.0,
+      date: DateTime(2025, 9, 11),
       itemCount: 2,
-      status: OrderStatus.canceled,
+      status: OrderStatus.confirmed,
+      paymentMethod: PaymentMethod.onDelivery,
     ),
     Order(
-      orderId: "#243191",
-      totalPrice: 60.0,
-      orderDate: DateTime(2025, 9, 12),
+      id: "#243191",
+      totalAmount: 60.0,
+      date: DateTime(2025, 9, 12),
       itemCount: 5,
-      status: OrderStatus.working,
+      status: OrderStatus.shipped,
+      paymentMethod: PaymentMethod.credit,
     ),
     Order(
-      orderId: "#243192",
-      totalPrice: 90.0,
-      orderDate: DateTime(2025, 9, 13),
+      id: "#243192",
+      totalAmount: 90.0,
+      date: DateTime(2025, 9, 13),
       itemCount: 6,
       status: OrderStatus.delivered,
+      paymentMethod: PaymentMethod.onDelivery,
     ),
     Order(
-      orderId: "#243193",
-      totalPrice: 15.0,
-      orderDate: DateTime(2025, 9, 14),
+      id: "#243193",
+      totalAmount: 15.0,
+      date: DateTime(2025, 9, 14),
       itemCount: 1,
-      status: OrderStatus.newOrder,
+      status: OrderStatus.placed,
+      paymentMethod: PaymentMethod.knet,
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Orders", style: MyTextStyles.font24BoldPrimary),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1),
-          child: Container(color: Colors.grey[300], height: 1.0),
-        ),
-        centerTitle: true,
-      ),
+      appBar: const MyAppBar(title: "Orders"),
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(

@@ -20,13 +20,13 @@ class OrderDetailsColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${order.orderId}  -  ${order.totalPrice} KD',
+          '${order.id}  -  ${order.totalAmount} KD',
           style: MyTextStyles.font16BoldBlack,
         ),
         Row(
           children: [
             Text(
-              DateFormat('d MMM').format(order.orderDate),
+              DateFormat('d MMM').format(order.date),
               style: MyTextStyles.font16MediumGrey,
             ),
             const SizedBox(width: 10),
