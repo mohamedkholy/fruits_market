@@ -69,6 +69,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 );
                                 break;
                               case "Contact us":
+                                Navigator.pushNamed(
+                                  context,
+                                  MyRoutes.contactUsScreen,
+                                );
                                 break;
                               case "Terms & Conditions":
                                 Navigator.pushNamed(
