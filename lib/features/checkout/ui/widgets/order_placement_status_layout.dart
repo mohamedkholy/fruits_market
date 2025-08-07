@@ -9,8 +9,9 @@ class OrderPlacementStatusLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(title: "Checkout"),
-      body: SingleChildScrollView(
-        child: Center(
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: SingleChildScrollView(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 600),
             child: SizedBox(width: double.infinity, child: SuccessLayout()),

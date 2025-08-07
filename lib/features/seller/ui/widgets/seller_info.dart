@@ -15,7 +15,7 @@ class SellerInfo extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyCircularAvatar(imageUrl: seller.imageUrl, radius: 10, size: 70),
+          const MyCircularAvatar(imageUrl: '', radius: 10, size: 70),
           const SizedBox(width: 24),
           Expanded(child: SellerDetailsColumn(seller: seller)),
         ],

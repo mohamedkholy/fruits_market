@@ -10,7 +10,7 @@ import 'package:fruits_market/core/widgets/my_button.dart';
 
 class SuccessLayout extends StatelessWidget {
   SuccessLayout({super.key});
-  Order order = Order(
+  final Order order = Order(
     id: "#243188",
     totalAmount: 37.0,
     date: DateTime(2025, 9, 9),

@@ -2,7 +2,6 @@ import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/models/product.dart';
 import 'package:fruits_market/core/models/product_add_on.dart';
-import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/features/favorites/ui/widgets/favorites_item.dart';
 
@@ -186,9 +185,7 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(
-        title: "Favorites",
-      ),
+      appBar: const MyAppBar(title: "Favorites"),
       body: SafeArea(
         child: Align(
           alignment: Alignment.topCenter,

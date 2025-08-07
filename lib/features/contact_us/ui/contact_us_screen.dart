@@ -23,55 +23,64 @@ class _ContactUsLayoutState extends State<ContactUsScreen> {
     return Scaffold(
       appBar: const MyAppBar(title: "Contact Us"),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 32),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MyTextFormField(
-                    title: "name",
-                    hintText: "name",
-                    controller: _nameTextController,
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 32,
+                ),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MyTextFormField(
+                        title: "name",
+                        hintText: "name",
+                        controller: _nameTextController,
+                      ),
+                      const SizedBox(height: 24),
+                      MyPhoneNumberFormField(
+                        title: "mobile",
+                        hintText: "mobile",
+                        controller: _mobileTextController,
+                      ),
+                      const SizedBox(height: 24),
+                      MyTextFormField(
+                        title: "message",
+                        hintText: "message",
+                        controller: _messageTextController,
+                        maxLines: 5,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 18,
+                          vertical: 15,
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "message is required";
+                          }
+                          if (value.length < 10) {
+                            return "message must be at least 10 characters long";
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 24),
+                      MyButton(
+                        text: "Submit",
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {}
+                        },
+                      ),
+                      const SizedBox(height: 24),
+                      const ContactMethodsRow(),
+                    ],
                   ),
-                  const SizedBox(height: 24),
-                  MyPhoneNumberFormField(
-                    title: "mobile",
-                    hintText: "mobile",
-                    controller: _mobileTextController,
-                  ),
-                  const SizedBox(height: 24),
-                  MyTextFormField(
-                    title: "message",
-                    hintText: "message",
-                    controller: _messageTextController,
-                    maxLines: 5,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 15,
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "message is required";
-                      }
-                      if (value.length < 10) {
-                        return "message must be at least 10 characters long";
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 24),
-                  MyButton(
-                    text: "Submit",
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {}
-                    },
-                  ),
-                  const SizedBox(height: 24),
-                  const ContactMethodsRow(),
-                ],
+                ),
               ),
             ),
           ),

@@ -24,7 +24,7 @@ class MyPhoneNumberFormField extends StatefulWidget {
 class _MyPhoneNumberFormFieldState extends State<MyPhoneNumberFormField> {
   final TextEditingController _controller = TextEditingController();
   String _selectedCountryIsoCode = 'EG';
-  
+
   @override
   void initState() {
     super.initState();
@@ -90,6 +90,7 @@ class _MyPhoneNumberFormFieldState extends State<MyPhoneNumberFormField> {
                       ),
                       const SizedBox(width: 8),
                       DropdownButton<String>(
+                        dropdownColor: Colors.white,
                         icon: const SizedBox.shrink(),
                         value: _selectedCountryIsoCode,
                         items: countryToPhoneCode.keys.map((String key) {
