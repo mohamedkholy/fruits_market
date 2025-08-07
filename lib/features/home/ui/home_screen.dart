@@ -3,6 +3,7 @@ import 'package:fruits_market/core/theming/my_colors.dart';
 import 'package:fruits_market/core/widgets/my_app_bar.dart';
 import 'package:fruits_market/features/home/ui/widgets/ads_layout.dart';
 import 'package:fruits_market/features/home/ui/widgets/categories_row.dart';
+import 'package:fruits_market/features/home/ui/widgets/filter_sellers_dialog.dart';
 import 'package:fruits_market/features/home/ui/widgets/sellers_list.dart';
 import 'package:fruits_market/features/home/ui/widgets/show_all_selers_layout.dart';
 
@@ -24,7 +25,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => const FilterSellersDialog(),
+              );
+            },
             icon: const Icon(
               IconData(0xe801, fontFamily: "settings"),
               color: MyColors.primaryColor,

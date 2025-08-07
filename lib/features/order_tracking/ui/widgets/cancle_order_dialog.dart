@@ -25,76 +25,93 @@ class _CancleOrderDialogState extends State<CancleOrderDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return Dialog(
       backgroundColor: Colors.white,
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text("Cancel Order", style: MyTextStyles.font16BoldBlack),
-          const SizedBox(height: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text("Reason", style: MyTextStyles.font14RegularGrey),
-              const SizedBox(height: 7),
-              ShadowContainer(
-                borderRadius: 50,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton(
-                    icon: const Icon(Icons.keyboard_arrow_down_outlined),
-                    hint: const Text(
-                      "Please Select reason",
-                      style: MyTextStyles.font15RegularGrey,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 570),
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text("Cancel Order", style: MyTextStyles.font16BoldBlack),
+                const SizedBox(height: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Reason", style: MyTextStyles.font14RegularGrey),
+                    const SizedBox(height: 7),
+                    ShadowContainer(
+                      borderRadius: 50,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          isExpanded: true,
+                          dropdownColor: Colors.white,
+                          value: reason,
+                          icon: const Icon(Icons.keyboard_arrow_down_outlined),
+                          hint: const Text(
+                            "Please Select reason",
+                            style: MyTextStyles.font15RegularGrey,
+                          ),
+                          items: cancelReasons
+                              .map(
+                                (e) =>
+                                    DropdownMenuItem(value: e, child: Text(e)),
+                              )
+                              .toList(),
+                          onChanged: (value) => setState(() => reason = value),
+                        ),
+                      ),
                     ),
-                    items: cancelReasons
-                        .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                        .toList(),
-                    onChanged: (value) => setState(() => reason = value),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Notes", style: MyTextStyles.font14RegularGrey),
+                    SizedBox(height: 7),
+                    ShadowContainer(
+                      borderRadius: 15,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: TextField(
+                        maxLines: 3,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Enter your notes",
+                          hintStyle: MyTextStyles.font15RegularGrey,
+                          counterText: "",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                FractionallySizedBox(
+                  widthFactor: .8,
+                  child: MyButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    text: "Confirm Cancellation",
                   ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Notes", style: MyTextStyles.font14RegularGrey),
-              SizedBox(height: 7),
-              ShadowContainer(
-                borderRadius: 15,
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: TextField(
-                  maxLines: 3,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Enter your notes",
-                    hintStyle: MyTextStyles.font15RegularGrey,
-                    counterText: "",
+                const SizedBox(height: 16),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Close",
+                    style: MyTextStyles.font16MediumGrey,
                   ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          FractionallySizedBox(
-            widthFactor: .8,
-            child: MyButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              text: "Confirm Cancellation",
+              ],
             ),
           ),
-          const SizedBox(height: 16),
-          InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Text("Close", style: MyTextStyles.font16MediumGrey),
-          ),
-        ],
+        ),
       ),
     );
   }

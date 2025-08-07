@@ -24,51 +24,63 @@ class _LanguageDialogState extends State<LanguageDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.white,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text("Language", style: MyTextStyles.font18BoldBlack),
-            ...[
-              "${countryCodeToEmoji("sa")} Arabic",
-              " ${countryCodeToEmoji("us")} English",
-            ].asMap().entries.map(
-              (e) => ListTile(
-                leading: Transform.scale(
-                  scale: 1.2,
-                  child: Radio(
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    value: languages[e.key],
-                    groupValue: groupValue,
-                    onChanged: (value) {
-                      setState(() {
-                        groupValue = value.toString();
-                      });
-                    },
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 570),
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text("Language", style: MyTextStyles.font18BoldBlack),
+                const SizedBox(height: 16),
+                ...[
+                  "${countryCodeToEmoji("sa")} Arabic",
+                  " ${countryCodeToEmoji("us")} English",
+                ].asMap().entries.map(
+                  (e) => ListTile(
+                    leading: Transform.scale(
+                      scale: 1.2,
+                      child: Radio(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: languages[e.key],
+                        groupValue: groupValue,
+                        onChanged: (value) {
+                          setState(() {
+                            groupValue = value.toString();
+                          });
+                        },
+                      ),
+                    ),
+                    title: Text(
+                      e.value,
+                      style: MyTextStyles.font16RegularBlack,
+                    ),
                   ),
                 ),
-                title: Text(e.value, style: MyTextStyles.font16RegularBlack),
-              ),
+                const SizedBox(height: 20),
+                FractionallySizedBox(
+                  widthFactor: .8,
+                  child: MyButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    text: "Apply",
+                  ),
+                ),
+                const SizedBox(height: 16),
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Close",
+                    style: MyTextStyles.font16MediumGrey,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            FractionallySizedBox(
-              widthFactor: .8,
-              child: MyButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                text: "Apply",
-              ),
-            ),
-            const SizedBox(height: 16),
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Text("Close", style: MyTextStyles.font16MediumGrey),
-            ),
-          ],
+          ),
         ),
       ),
     );

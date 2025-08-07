@@ -22,6 +22,7 @@ import 'package:fruits_market/features/sign_up/ui/sign_up_screen.dart';
 import 'package:fruits_market/features/splash/logic/splash_cubit.dart';
 import 'package:fruits_market/features/splash/ui/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_market/features/update_profile/ui/update_profile_screen.dart';
 
 abstract class AppRouter {
   static Route? getRoutes(RouteSettings settings) {
@@ -75,6 +76,8 @@ abstract class AppRouter {
         return _createRoute(const TermsConditionsLayout(), settings);
       case MyRoutes.contactUsScreen:
         return _createRoute(const ContactUsScreen(), settings);
+      case MyRoutes.updateProfileScreen:
+        return _createRoute(const UpdateProfileScreen(), settings);  
       default:
         return null;
     }

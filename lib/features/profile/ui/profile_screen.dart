@@ -55,6 +55,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onTap: () {
                             switch (profileOptions.keys.elementAt(index)) {
                               case "Profile":
+                                Navigator.pushNamed(
+                                  context,
+                                  MyRoutes.updateProfileScreen,
+                                );
                                 break;
                               case "My Orders":
                                 context.read<NavigationCubit>().navigate(1);
