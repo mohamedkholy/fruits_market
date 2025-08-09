@@ -246,67 +246,76 @@ class _BasketScreenState extends State<BasketScreen> {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1200),
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: MediaQuery.sizeOf(context).width > 700
-                  ? Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          flex: 6,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                for (var basketItem in sampleBasketItems)
-                                  BasketItemWidget(basketItem: basketItem),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: BasketDetails(
-                            subtotal: subTotal,
-                            shippingCharges: shippingCharges,
-                            itemCount: itemCount,
-                          ),
-                        ),
-                      ],
-                    )
-                  : Column(
-                      children: [
-                        Expanded(
-                          child: CustomScrollView(
-                            slivers: [
-                              SliverList(
-                                delegate: SliverChildBuilderDelegate((
-                                  context,
-                                  index,
-                                ) {
-                                  return BasketItemWidget(
-                                    basketItem: sampleBasketItems[index],
-                                  );
-                                }, childCount: sampleBasketItems.length),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: constraints.maxWidth > 840
+                      ? Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 6,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    for (var basketItem in sampleBasketItems)
+                                      BasketItemWidget(basketItem: basketItem),
+                                  ],
+                                ),
                               ),
-                            ],
-                          ),
+                            ),
+                            Expanded(
+                              flex: 4,
+                              child: BasketDetails(
+                                subtotal: subTotal,
+                                shippingCharges: shippingCharges,
+                                itemCount: itemCount,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            Expanded(
+                              child: CustomScrollView(
+                                slivers: [
+                                  SliverList(
+                                    delegate: SliverChildBuilderDelegate((
+                                      context,
+                                      index,
+                                    ) {
+                                      return BasketItemWidget(
+                                        basketItem: sampleBasketItems[index],
+                                      );
+                                    }, childCount: sampleBasketItems.length),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(
+                                bottom: 20,
+                                top: 10,
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 15,
+                              ),
+                              child: const DottedLine(
+                                dashGapLength: 5,
+                                dashColor: Colors.grey,
+                              ),
+                            ),
+                            BasketDetails(
+                              subtotal: subTotal,
+                              shippingCharges: shippingCharges,
+                              itemCount: itemCount,
+                            ),
+                          ],
                         ),
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 20, top: 10),
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: const DottedLine(
-                            dashGapLength: 5,
-                            dashColor: Colors.grey,
-                          ),
-                        ),
-                        BasketDetails(
-                          subtotal: subTotal,
-                          shippingCharges: shippingCharges,
-                          itemCount: itemCount,
-                        ),
-                      ],
-                    ),
+                );
+              },
             ),
           ),
         ),

@@ -104,19 +104,23 @@ class _SellersListState extends State<SellersList> {
 
   @override
   Widget build(BuildContext context) {
-    return MediaQuery.of(context).size.width < 750
-        ? SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => SellerItem(seller: sellers[index]),
-              childCount: sellers.length,
-            ),
-          )
-        : SliverDynamicHeightGridView(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            builder: (context, index) => SellerItem(seller: sellers[index]),
-            itemCount: sellers.length,
-          );
+    return SliverLayoutBuilder(
+      builder: (context, constraints) {
+        return constraints.crossAxisExtent < 840
+            ? SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => SellerItem(seller: sellers[index]),
+                  childCount: sellers.length,
+                ),
+              )
+            : SliverDynamicHeightGridView(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                builder: (context, index) => SellerItem(seller: sellers[index]),
+                itemCount: sellers.length,
+              );
+      },
+    );
   }
 }

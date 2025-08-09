@@ -3,7 +3,13 @@ import 'package:fruits_market/core/models/order_status.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 
 class OrderStatusRichText extends StatelessWidget {
-  const OrderStatusRichText({super.key, required this.status});
+  final bool isWide;
+  final OrderStatus status;
+  const OrderStatusRichText({
+    super.key,
+    required this.status,
+    required this.isWide,
+  });
 
   final Map<OrderStatus, Map<String, String>> orderStatusDetails = const {
     OrderStatus.placed: {
@@ -32,11 +38,10 @@ class OrderStatusRichText extends StatelessWidget {
     },
   };
 
-  final OrderStatus status;
-
   @override
   Widget build(BuildContext context) {
     return RichText(
+      textAlign: isWide ? TextAlign.center : TextAlign.start,
       text: TextSpan(
         text: "${orderStatusDetails[status]!["title"]}\n",
         style: MyTextStyles.font21BoldPrimary,

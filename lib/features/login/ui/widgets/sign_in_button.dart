@@ -18,7 +18,7 @@ class SignInButton extends StatelessWidget {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         minimumSize: const Size(double.infinity, 50),
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
@@ -28,7 +28,11 @@ class SignInButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       icon: SvgPicture.asset(icon, height: 20),
-      label: Text(label, style: MyTextStyles.font14RegularBlack),
+      label: Text(
+        label,
+        style: MyTextStyles.font14RegularBlack,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

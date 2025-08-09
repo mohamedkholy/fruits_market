@@ -15,9 +15,10 @@ class SignUpTextspan extends StatelessWidget {
         style: MyTextStyles.font18RegularGrey,
         children: [
           TextSpan(
-            recognizer: TapGestureRecognizer()..onTap = () {
-              Navigator.pushNamed(context, MyRoutes.signupScreen);
-            },
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.pushNamed(context, MyRoutes.signupScreen);
+              },
             text: "Sign up",
             style: MyTextStyles.font18RegularBlueUnderline,
           ),

@@ -24,6 +24,7 @@ class _UserProfilePictureState extends State<UserProfilePicture> {
         Text(
           "Welcome, Fruit Market",
           style: MyTextStyles.font24BoldPrimary.copyWith(color: Colors.black),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 16),
         FractionallySizedBox(

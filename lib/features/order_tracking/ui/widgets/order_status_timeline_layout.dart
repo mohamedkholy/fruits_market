@@ -41,8 +41,9 @@ class OrderStatusTimelineLayout extends StatelessWidget {
               top: MediaQuery.sizeOf(context).height > 500 ? 100 : 30,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+              children: children.map((e) => Expanded(child: e)).toList(),
             ),
           )
         : Column(children: children);

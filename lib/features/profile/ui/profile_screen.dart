@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     "Favorites": Icons.favorite_outline,
     "Language": Icons.language,
     "Contact us": Icons.support_agent,
-    "Terms & Conditions": Icons.info_outline,
+    "Terms & Conditions": Icons.description_outlined,
     "About Us": Icons.info_outline,
     "Logout": Icons.logout_outlined,
   };
@@ -46,6 +46,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const UserProfilePicture(),
                     const SizedBox(height: 32),
                     ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: profileOptions.length,
                       itemBuilder: (context, index) {

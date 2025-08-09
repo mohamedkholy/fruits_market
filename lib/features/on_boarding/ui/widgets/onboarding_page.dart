@@ -26,10 +26,13 @@ class OnboardingPage extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 16),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: MyTextStyles.font17RegularGrey,
+        SizedBox(
+          height: 100,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: MyTextStyles.font17RegularGrey,
+          ),
         ),
       ],
     );

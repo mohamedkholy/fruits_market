@@ -12,7 +12,7 @@ class PaymentLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: Column(
           children: [
             ShadowContainer(
@@ -20,9 +20,11 @@ class PaymentLayout extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Do You Have any Coupon Code?",
-                    style: MyTextStyles.font16BoldBlack,
+                  const Expanded(
+                    child: Text(
+                      "Do You Have any Coupon Code?",
+                      style: MyTextStyles.font16BoldBlack,
+                    ),
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(
