@@ -2,6 +2,14 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesLottieLoading
+  /// assets/images/lottie/loading.json
+  static const String imagesLottieLoading = "assets/images/lottie/loading.json";
+
+  /// Assets for imagesLottieLoadingCircle
+  /// assets/images/lottie/loading_circle.json
+  static const String imagesLottieLoadingCircle = "assets/images/lottie/loading_circle.json";
+
   /// Assets for imagesPngAdExample4
   /// assets/images/png/ad_example4.png
   static const String imagesPngAdExample4 = "assets/images/png/ad_example4.png";
