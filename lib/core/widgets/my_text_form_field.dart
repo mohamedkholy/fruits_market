@@ -34,13 +34,21 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Text(widget.title, style: MyTextStyles.font14RegularlightGrey),
-            if (widget.isRequired)
-              const Text(" *", style: TextStyle(color: Colors.red)),
-          ],
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: widget.title,
+                style: MyTextStyles.font14RegularlightGrey,
+              ),
+              const TextSpan(
+                text: " *",
+                style: TextStyle(color: Colors.red),
+              ),
+            ],
+          ),
         ),
         const SizedBox(height: 8),
         TextFormField(

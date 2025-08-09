@@ -26,11 +26,6 @@ class _MyPhoneNumberFormFieldState extends State<MyPhoneNumberFormField> {
   String _selectedCountryIsoCode = 'EG';
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
@@ -41,11 +36,19 @@ class _MyPhoneNumberFormFieldState extends State<MyPhoneNumberFormField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Text(widget.title, style: MyTextStyles.font14RegularlightGrey),
-            const Text(" *", style: TextStyle(color: Colors.red)),
-          ],
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: widget.title,
+                style: MyTextStyles.font14RegularlightGrey,
+              ),
+              const TextSpan(
+                text: " *",
+                style: TextStyle(color: Colors.red),
+              ),
+            ],
+          ),
         ),
         const SizedBox(height: 8),
         TextFormField(

@@ -3,8 +3,8 @@ import 'package:fruits_market/core/di/dependency_injection.dart';
 import 'package:fruits_market/core/helpers/shared_preferences_keys.dart';
 import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/widgets/my_button.dart';
-import 'package:fruits_market/features/on_boarding/ui/widgets/on_boarding_page_view.dart';
 import 'package:fruits_market/core/widgets/page_indicator.dart';
+import 'package:fruits_market/features/on_boarding/ui/widgets/on_boarding_page_view.dart';
 import 'package:fruits_market/features/on_boarding/ui/widgets/skip_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,7 +18,6 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final _pageViewController = PageController();
   int _selectedPageIndex = 0;
-
 
   @override
   void dispose() {
@@ -52,9 +51,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             _selectedPageIndex = index;
                           });
                         },
+                      ), 
+                      PageIndicator(
+                        selectedPageIndex: _selectedPageIndex,
+                        size: 12,
+                        length: 3,
                       ),
-                      const SizedBox(height: 50),
-                      PageIndicator(selectedPageIndex: _selectedPageIndex, size: 12,length: 3,),
                       const SizedBox(height: 90),
                       MyButton(
                         text: _selectedPageIndex == 2 ? "Get Started" : "Next",

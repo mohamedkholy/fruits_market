@@ -70,11 +70,15 @@ class OrdersScreen extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 1200),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 15),
-              child: DynamicHeightGridView(
-                crossAxisCount: MediaQuery.of(context).size.width < 650 ? 1 : 2,
-                itemCount: orders.length,
-                builder: (context, index) {
-                  return OrderItemLayout(order: orders[index]);
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return DynamicHeightGridView(
+                    crossAxisCount: constraints.maxWidth < 700 ? 1 : 2,
+                    itemCount: orders.length,
+                    builder: (context, index) {
+                      return OrderItemLayout(order: orders[index]);
+                    },
+                  );
                 },
               ),
             ),

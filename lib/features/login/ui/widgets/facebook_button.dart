@@ -12,7 +12,7 @@ class FacebookButton extends StatelessWidget {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         minimumSize: const Size(double.infinity, 50),
         backgroundColor: const Color(0xff235C95),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),

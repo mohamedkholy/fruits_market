@@ -24,7 +24,7 @@ class TimelineTileWithDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> children = [
       SizedBox(
-        width: isWide ? 150 : 50,
+        width: isWide ? double.infinity : 50,
         height: isWide ? 50 : null,
         child: TimelineTile(
           axis: isWide ? TimelineAxis.horizontal : TimelineAxis.vertical,
@@ -57,8 +57,10 @@ class TimelineTileWithDescription extends StatelessWidget {
         ),
       ),
       isWide
-          ? OrderStatusRichText(status: status)
-          : Expanded(child: OrderStatusRichText(status: status)),
+          ? OrderStatusRichText(status: status, isWide: isWide)
+          : Expanded(
+              child: OrderStatusRichText(status: status, isWide: isWide),
+            ),
     ];
     return isWide ? Column(children: children) : Row(children: children);
   }

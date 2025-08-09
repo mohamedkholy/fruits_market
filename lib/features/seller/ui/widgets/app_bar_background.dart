@@ -10,7 +10,6 @@ class AppBarBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.topCenter,
       children: [
         Image.asset(
           Assets.imagesPngDownload,
@@ -18,11 +17,11 @@ class AppBarBackground extends StatelessWidget {
           width: double.infinity,
           height: 230,
         ),
-        Transform(
-          transform: Matrix4.translationValues(0, 180, 0),
+        Align(
+          alignment: Alignment.bottomCenter,
           child: Container(
             height: 125,
-            margin: const EdgeInsets.symmetric(horizontal: 15),
+            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: SellerInfo(seller: seller),
           ),
         ),

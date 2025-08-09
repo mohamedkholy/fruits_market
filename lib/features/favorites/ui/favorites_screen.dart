@@ -193,11 +193,15 @@ class FavoritesScreen extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 1200),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 10),
-              child: DynamicHeightGridView(
-                crossAxisCount: MediaQuery.sizeOf(context).width < 800 ? 1 : 2,
-                itemCount: sampleProducts.length,
-                builder: (context, index) {
-                  return FavoritesItem(product: sampleProducts[index]);
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return DynamicHeightGridView(
+                    crossAxisCount: constraints.maxWidth < 800 ? 1 : 2,
+                    itemCount: sampleProducts.length,
+                    builder: (context, index) {
+                      return FavoritesItem(product: sampleProducts[index]);
+                    },
+                  );
                 },
               ),
             ),

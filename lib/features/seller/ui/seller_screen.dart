@@ -20,24 +20,25 @@ class SellerScreen extends StatelessWidget {
             slivers: [
               SliverAppBar(
                 pinned: true,
-                collapsedHeight: 56,
                 expandedHeight: 270,
                 automaticallyImplyLeading: false,
                 surfaceTintColor: Colors.white,
                 actionsPadding: const EdgeInsets.symmetric(horizontal: 10),
-                title: InkWell(
+                leading: InkWell(
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: MyColors.primaryColor,
+                  child: Center(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: MyColors.primaryColor,
+                        ),
                       ),
                     ),
                   ),

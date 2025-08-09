@@ -41,28 +41,37 @@ class CheckoutProgress extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Delivery time",
-                style: MyTextStyles.font16RegularBlack.copyWith(
-                  color: step >= 1
-                      ? MyColors.primaryColor
-                      : Colors.grey.shade400,
+              Expanded(
+                child: Text(
+                  textAlign: TextAlign.start,
+                  "Delivery time",
+                  style: MyTextStyles.font16RegularBlack.copyWith(
+                    color: step >= 1
+                        ? MyColors.primaryColor
+                        : Colors.grey.shade400,
+                  ),
                 ),
               ),
-              Text(
-                "Delivery Address",
-                style: MyTextStyles.font16RegularBlack.copyWith(
-                  color: step >= 2
-                      ? MyColors.primaryColor
-                      : Colors.grey.shade400,
+              Expanded(
+                child: Text(
+                  textAlign: TextAlign.center,
+                  "Delivery Address",
+                  style: MyTextStyles.font16RegularBlack.copyWith(
+                    color: step >= 2
+                        ? MyColors.primaryColor
+                        : Colors.grey.shade400,
+                  ),
                 ),
               ),
-              Text(
-                "Payment",
-                style: MyTextStyles.font16RegularBlack.copyWith(
-                  color: step >= 3
-                      ? MyColors.primaryColor
-                      : Colors.grey.shade400,
+              Expanded(
+                child: Text(
+                  textAlign: TextAlign.end,
+                  "Payment",
+                  style: MyTextStyles.font16RegularBlack.copyWith(
+                    color: step >= 3
+                        ? MyColors.primaryColor
+                        : Colors.grey.shade400,
+                  ),
                 ),
               ),
             ],

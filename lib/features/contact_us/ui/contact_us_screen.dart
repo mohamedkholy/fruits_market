@@ -19,6 +19,15 @@ class _ContactUsLayoutState extends State<ContactUsScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
+  void dispose() {
+    _nameTextController.dispose();
+    _mobileTextController.dispose();
+    _messageTextController.dispose();
+    _formKey.currentState?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(title: "Contact Us"),

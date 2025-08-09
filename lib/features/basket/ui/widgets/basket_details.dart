@@ -51,7 +51,7 @@ class BasketDetails extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 30),
+          SizedBox(height: MediaQuery.of(context).size.height < 400 ? 10 : 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
