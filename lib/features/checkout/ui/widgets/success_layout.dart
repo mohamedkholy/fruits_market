@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/helpers/assets_helper.dart';
 import 'package:fruits_market/core/models/order.dart';
 import 'package:fruits_market/core/models/order_status.dart';
 import 'package:fruits_market/core/models/payment_method.dart';

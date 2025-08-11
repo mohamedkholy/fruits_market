@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/helpers/assets_helper.dart';
 
 class MyCircularAvatar extends StatelessWidget {
   final String imageUrl;

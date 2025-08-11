@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/helpers/assets_helper.dart';
 import 'package:lottie/lottie.dart';
 
 class FullScreenLoader {

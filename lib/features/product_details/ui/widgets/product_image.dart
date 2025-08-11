@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/helpers/assets_helper.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 
 class ProductImage extends StatelessWidget {

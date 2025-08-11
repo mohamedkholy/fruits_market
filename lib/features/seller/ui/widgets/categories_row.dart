@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/helpers/assets_helper.dart';
 
 class CategoriesRow extends StatelessWidget {
   const CategoriesRow({super.key});

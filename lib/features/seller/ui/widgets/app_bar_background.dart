@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/helpers/assets_helper.dart';
 import 'package:fruits_market/core/models/seller.dart';
 import 'package:fruits_market/features/seller/ui/widgets/seller_info.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:fruits_market/assets/assets.dart';
+import 'package:fruits_market/core/helpers/assets_helper.dart';
 import 'package:fruits_market/core/widgets/page_indicator.dart';
 import 'package:fruits_market/features/home/ui/widgets/ads_view_page.dart';
 

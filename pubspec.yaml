@@ -46,8 +46,8 @@ dev_dependencies:
 
 flutter_assets:
   assets_path: assets/images/
-  output_path: lib/assets
-  filename: assets.dart
+  output_path: lib/core/helpers
+  filename: assets_helper.dart
   field_prefix:
 
 
