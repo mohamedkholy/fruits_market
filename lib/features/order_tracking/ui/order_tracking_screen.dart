@@ -21,7 +21,7 @@ class OrderTrackingScreen extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 1200),
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 28),
+              padding: const EdgeInsets.only(bottom: 15, left: 28, right: 28),
               child: Column(
                 children: [
                   Expanded(

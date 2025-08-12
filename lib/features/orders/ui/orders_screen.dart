@@ -58,30 +58,80 @@ class OrdersScreen extends StatelessWidget {
       status: OrderStatus.placed,
       paymentMethod: PaymentMethod.knet,
     ),
+    Order(
+      id: "#243188",
+      totalAmount: 37.0,
+      date: DateTime(2025, 9, 9),
+      itemCount: 4,
+      status: OrderStatus.delivering,
+      paymentMethod: PaymentMethod.credit,
+    ),
+    Order(
+      id: "#243189",
+      totalAmount: 42.5,
+      date: DateTime(2025, 9, 10),
+      itemCount: 3,
+      status: OrderStatus.shipped,
+      paymentMethod: PaymentMethod.knet,
+    ),
+    Order(
+      id: "#243190",
+      totalAmount: 25.0,
+      date: DateTime(2025, 9, 11),
+      itemCount: 2,
+      status: OrderStatus.confirmed,
+      paymentMethod: PaymentMethod.onDelivery,
+    ),
+    Order(
+      id: "#243191",
+      totalAmount: 60.0,
+      date: DateTime(2025, 9, 12),
+      itemCount: 5,
+      status: OrderStatus.shipped,
+      paymentMethod: PaymentMethod.credit,
+    ),
+    Order(
+      id: "#243192",
+      totalAmount: 90.0,
+      date: DateTime(2025, 9, 13),
+      itemCount: 6,
+      status: OrderStatus.delivered,
+      paymentMethod: PaymentMethod.onDelivery,
+    ),
+    Order(
+      id: "#243193",
+      totalAmount: 15.0,
+      date: DateTime(2025, 9, 14),
+      itemCount: 1,
+      status: OrderStatus.placed,
+      paymentMethod: PaymentMethod.knet,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(title: "Orders"),
-      body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1200),
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return DynamicHeightGridView(
-                    crossAxisCount: constraints.maxWidth < 700 ? 1 : 2,
-                    itemCount: orders.length,
-                    builder: (context, index) {
-                      return OrderItemLayout(order: orders[index]);
-                    },
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1200),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return DynamicHeightGridView(
+                crossAxisCount: constraints.maxWidth < 700 ? 1 : 2,
+                itemCount: orders.length,
+                builder: (context, index) {
+                  return Container(
+                    margin: index == 0
+                        ? const EdgeInsets.only(top: 10)
+                        : index == orders.length - 1
+                        ? const EdgeInsets.only(bottom: 10)
+                        : null,
+                    child: OrderItemLayout(order: orders[index]),
                   );
                 },
-              ),
-            ),
+              );
+            },
           ),
         ),
       ),

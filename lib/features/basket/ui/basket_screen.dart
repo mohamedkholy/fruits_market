@@ -243,27 +243,39 @@ class _BasketScreenState extends State<BasketScreen> {
     return Scaffold(
       appBar: const MyAppBar(title: "Basket"),
       body: SafeArea(
+        bottom: false,
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1200),
             child: LayoutBuilder(
               builder: (context, constraints) {
-                return Container(
+                return SizedBox(
                   width: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: constraints.maxWidth > 840
+                  child: constraints.maxWidth > 600
                       ? Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
                               flex: 6,
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    for (var basketItem in sampleBasketItems)
-                                      BasketItemWidget(basketItem: basketItem),
-                                  ],
-                                ),
+                              child: CustomScrollView(
+                                slivers: [
+                                  SliverPadding(
+                                    padding: const EdgeInsets.only(
+                                      bottom: 90,
+                                      top: 10,
+                                    ),
+                                    sliver: SliverList(
+                                      delegate: SliverChildBuilderDelegate((
+                                        context,
+                                        index,
+                                      ) {
+                                        return BasketItemWidget(
+                                          basketItem: sampleBasketItems[index],
+                                        );
+                                      }, childCount: sampleBasketItems.length),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Expanded(
@@ -281,15 +293,21 @@ class _BasketScreenState extends State<BasketScreen> {
                             Expanded(
                               child: CustomScrollView(
                                 slivers: [
-                                  SliverList(
-                                    delegate: SliverChildBuilderDelegate((
-                                      context,
-                                      index,
-                                    ) {
-                                      return BasketItemWidget(
-                                        basketItem: sampleBasketItems[index],
-                                      );
-                                    }, childCount: sampleBasketItems.length),
+                                  SliverPadding(
+                                    padding: const EdgeInsets.only(
+                                      bottom: 10,
+                                      top: 10,
+                                    ),
+                                    sliver: SliverList(
+                                      delegate: SliverChildBuilderDelegate((
+                                        context,
+                                        index,
+                                      ) {
+                                        return BasketItemWidget(
+                                          basketItem: sampleBasketItems[index],
+                                        );
+                                      }, childCount: sampleBasketItems.length),
+                                    ),
                                   ),
                                 ],
                               ),

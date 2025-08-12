@@ -45,6 +45,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
         });
       },
       child: Scaffold(
+        extendBody: true,
+        bottomNavigationBar: !isMediumWide
+            ? BottomNavLayout(
+                isWide: isWide,
+                currentIndex: _currentIndex,
+                onDestinationSelected: (index) {
+                  context.read<NavigationCubit>().navigate(index);
+                },
+                navItems: navItems,
+              )
+            : null,
         body: Row(
           children: [
             if (isMediumWide)
@@ -59,16 +70,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
             Expanded(child: _pages[_currentIndex]),
           ],
         ),
-        bottomNavigationBar: isMediumWide
-            ? null
-            : BottomNavLayout(
-                isWide: isWide,
-                currentIndex: _currentIndex,
-                onDestinationSelected: (index) {
-                  context.read<NavigationCubit>().navigate(index);
-                },
-                navItems: navItems,
-              ),
       ),
     );
   }

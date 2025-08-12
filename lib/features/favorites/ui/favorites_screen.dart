@@ -187,23 +187,28 @@ class FavoritesScreen extends StatelessWidget {
     return Scaffold(
       appBar: const MyAppBar(title: "Favorites"),
       body: SafeArea(
+        bottom: false,
         child: Align(
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1200),
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return DynamicHeightGridView(
-                    crossAxisCount: constraints.maxWidth < 800 ? 1 : 2,
-                    itemCount: sampleProducts.length,
-                    builder: (context, index) {
-                      return FavoritesItem(product: sampleProducts[index]);
-                    },
-                  );
-                },
-              ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return DynamicHeightGridView(
+                  crossAxisCount: constraints.maxWidth < 800 ? 1 : 2,
+                  itemCount: sampleProducts.length,
+                  builder: (context, index) {
+                    return Container(
+                      margin: index == 0
+                          ? const EdgeInsets.only(top: 10)
+                          : index == sampleProducts.length - 1
+                          ? const EdgeInsets.only(bottom: 10)
+                          : null,
+                      child: FavoritesItem(product: sampleProducts[index]),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ),

@@ -55,7 +55,12 @@ class BasketDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("$itemCount items", style: MyTextStyles.font16BoldBlack),
+              Expanded(
+                child: Text(
+                  "$itemCount items",
+                  style: MyTextStyles.font16BoldBlack,
+                ),
+              ),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: MyColors.primaryColor,

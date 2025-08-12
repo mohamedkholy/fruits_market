@@ -31,6 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: const MyAppBar(title: "Profile"),
       body: SafeArea(
+        bottom: false,
         child: Align(
           alignment: Alignment.topCenter,
           child: ConstrainedBox(

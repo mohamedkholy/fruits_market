@@ -26,8 +26,14 @@ class MyApp extends StatelessWidget {
         );
       },
       theme: ThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.transparent,
+        ),
         dividerColor: Colors.transparent,
-        appBarTheme: const AppBarTheme(color: Colors.white),
+        appBarTheme: const AppBarTheme(
+          color: Colors.white,
+          scrolledUnderElevation: 0,
+        ),
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "poppins",
         primaryColor: MyColors.primaryColor,
