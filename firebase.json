@@ -1,0 +1,23 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "fruit-market-371cd",
+                    "appId": "1:385455523604:android:18907b9cef43501dcfa401",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "fruit-market-371cd",
+                    "configurations": {
+                        "android": "1:385455523604:android:18907b9cef43501dcfa401",
+                        "ios": "1:385455523604:ios:e283c50a1881bd6bcfa401",
+                        "web": "1:385455523604:web:fcc4a8da1199329bcfa401"
+                    }
+                }
+            }
+        }
+    }
+}
