@@ -1,12 +1,26 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:fruits_market/core/di/dependency_injection.dart';
+import 'package:fruits_market/core/notifications/notifications_manager.dart';
 import 'package:fruits_market/core/routing/app_router.dart';
 import 'package:fruits_market/core/theming/my_colors.dart';
+import 'package:fruits_market/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
+  await dotenv.load();
+  await initFirebase();
+  await NotificationsManager().initNotifications();
   runApp(const MyApp());
+}
+
+Future<void> initFirebase() async {
+  await Firebase.initializeApp(
+    options: kIsWeb ? DefaultFirebaseOptions.currentPlatform : null,
+  );
 }
 
 class MyApp extends StatelessWidget {

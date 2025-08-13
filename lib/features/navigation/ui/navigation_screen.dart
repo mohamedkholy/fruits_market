@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_market/core/notifications/notifications_manager.dart';
 import 'package:fruits_market/features/basket/ui/basket_screen.dart';
 import 'package:fruits_market/features/favorites/ui/favorites_screen.dart';
 import 'package:fruits_market/features/home/ui/home_screen.dart';
@@ -33,6 +34,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
     (IconData(0xe812, fontFamily: "navigation"), 'Favorites'),
     (IconData(0xe811, fontFamily: "navigation"), 'Profile'),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      NotificationsManager().requestPermission();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
