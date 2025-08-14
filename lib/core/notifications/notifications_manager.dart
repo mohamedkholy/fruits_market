@@ -1,6 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 @pragma('vm:entry-point')
 Future<void> _notificationBackgroundHandler(RemoteMessage message) async {
@@ -32,7 +33,13 @@ class NotificationsManager {
   Future<void> initNotifications() async {
     await _initializeLocalNotifications();
     await _createNotificationChannel();
+    _initOneSignalNotifications();
     _initNotificationHandlers();
+  }
+
+  void _initOneSignalNotifications() {
+    OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
+    OneSignal.initialize("f3d3d68e-880d-404d-b2a1-9e6f6f58825c");
   }
 
   void _initNotificationHandlers() {
