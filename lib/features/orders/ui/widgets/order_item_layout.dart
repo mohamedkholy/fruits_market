@@ -46,11 +46,13 @@ class OrderItemLayout extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 15),
-            OrderDetailsColumn(
-              order: order,
-              color: statusStyles[order.status]!['color'],
+            Expanded(
+              child: OrderDetailsColumn(
+                order: order,
+                color: statusStyles[order.status]!['color'],
+              ),
             ),
-            const Spacer(),
+
             CircleAvatar(
               backgroundColor: (statusStyles[order.status]!['color'] as Color)
                   .withAlpha(200),

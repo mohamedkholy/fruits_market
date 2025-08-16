@@ -17,7 +17,7 @@ class BasketItemWidget extends StatelessWidget {
       child: IntrinsicHeight(
         child: Row(
           children: [
-            const MyCircularAvatar(imageUrl: "", radius: 40),
+            const MyCircularAvatar(imageUrl: ""),
             const SizedBox(width: 15),
             Expanded(
               child: Column(
@@ -33,7 +33,6 @@ class BasketItemWidget extends StatelessWidget {
                           style: MyTextStyles.font16BoldBlack,
                         ),
                       ),
-                      const Spacer(),
                       InkWell(
                         onTap: () {},
                         child: const Icon(

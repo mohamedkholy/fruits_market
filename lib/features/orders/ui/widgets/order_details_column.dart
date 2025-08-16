@@ -39,9 +39,11 @@ class OrderDetailsColumn extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Text(
-              '${order.itemCount} items',
-              style: MyTextStyles.font16MediumGrey,
+            Expanded(
+              child: Text(
+                '${order.itemCount} items',
+                style: MyTextStyles.font16MediumGrey,
+              ),
             ),
           ],
         ),

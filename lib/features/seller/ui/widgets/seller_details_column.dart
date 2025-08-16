@@ -11,6 +11,7 @@ class SellerDetailsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(seller.name, style: MyTextStyles.font16BoldBlack),
         Text(seller.mainProduct, style: MyTextStyles.font14RegularGrey),
@@ -41,7 +42,7 @@ class SellerDetailsColumn extends StatelessWidget {
               backgroundColor: seller.isOpen ? Colors.green : Colors.red,
             ),
             Text(
-              " ${seller.isOpen ? " Open" : " Close"}",
+              " ${seller.isOpen ? " Open" : " Closed"}",
               style: MyTextStyles.font14MediumBlack.copyWith(
                 color: seller.isOpen ? Colors.green : Colors.red,
               ),

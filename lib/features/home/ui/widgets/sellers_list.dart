@@ -106,27 +106,18 @@ class _SellersListState extends State<SellersList> {
   Widget build(BuildContext context) {
     return SliverLayoutBuilder(
       builder: (context, constraints) {
-        return constraints.crossAxisExtent < 840
-            ? SliverPadding(
-                padding: const EdgeInsets.only(bottom: 90),
-                sliver: SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) => SellerItem(seller: sellers[index]),
-                    childCount: sellers.length,
-                  ),
-                ),
-              )
-            : SliverPadding(
-                padding: const EdgeInsets.only(bottom: 20),
-                sliver: SliverDynamicHeightGridView(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  builder: (context, index) =>
-                      SellerItem(seller: sellers[index]),
-                  itemCount: sellers.length,
-                ),
-              );
+        return SliverPadding(
+          padding: EdgeInsets.only(
+            bottom: constraints.crossAxisExtent < 750 ? 90 : 20,
+          ),
+          sliver: SliverDynamicHeightGridView(
+            crossAxisCount: constraints.crossAxisExtent < 750 ? 1 : 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            builder: (context, index) => SellerItem(seller: sellers[index]),
+            itemCount: sellers.length,
+          ),
+        );
       },
     );
   }

@@ -16,6 +16,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final FocusNode _mobileFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -23,6 +25,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     _fullNameController.dispose();
     _phoneNumberController.dispose();
     _passwordController.dispose();
+    _mobileFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    _formKey.currentState?.dispose();
     super.dispose();
   }
 
@@ -53,12 +58,17 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                         controller: _fullNameController,
                         title: "Full Name",
                         hintText: "First and Last Name",
+                        onFieldSubmitted: (p0) =>
+                            _mobileFocusNode.requestFocus(),
                       ),
                       const SizedBox(height: 24),
                       MyPhoneNumberFormField(
                         controller: _phoneNumberController,
                         title: "Phone Number with Whatsapp",
                         hintText: "Mobile Number",
+                        focusNode: _mobileFocusNode,
+                        onFieldSubmitted: (p0) =>
+                            _passwordFocusNode.requestFocus(),
                       ),
                       const SizedBox(height: 24),
                       MyTextFormField(
@@ -66,6 +76,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                         title: "Password",
                         hintText: "Enter your password",
                         isPassword: true,
+                        focusNode: _passwordFocusNode,
                       ),
                       const SizedBox(height: 60),
                       MyButton(

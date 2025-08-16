@@ -14,8 +14,9 @@ class ProductDetails extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(product.name, style: MyTextStyles.font18BoldBlack),
-            const Spacer(),
+            Expanded(
+              child: Text(product.name, style: MyTextStyles.font18BoldBlack),
+            ),
             ProductPriceText(product: product),
           ],
         ),
@@ -27,7 +28,7 @@ class ProductDetails extends StatelessWidget {
             RichText(
               text: TextSpan(
                 text: "sell per: ",
-                style: MyTextStyles.font18BoldBlack,
+                style: MyTextStyles.font16BoldBlack,
                 children: [
                   TextSpan(
                     text: product.sellPer,

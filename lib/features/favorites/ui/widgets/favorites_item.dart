@@ -18,7 +18,7 @@ class FavoritesItem extends StatelessWidget {
       child: IntrinsicHeight(
         child: Row(
           children: [
-            const MyCircularAvatar(imageUrl: "", radius: 40),
+            const MyCircularAvatar(imageUrl: ""),
             const SizedBox(width: 15),
             Expanded(
               child: Column(
@@ -26,8 +26,6 @@ class FavoritesItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Text(

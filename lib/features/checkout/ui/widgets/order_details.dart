@@ -100,46 +100,39 @@ class OrderDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final subtotal = sampleBasketItems.fold(
+      0.0,
+      (previousValue, element) =>
+          previousValue + element.product.discountedPrice * element.quantity,
+    );
     return Column(
       children: [
         const Text("Order Details", style: MyTextStyles.font16BoldBlack),
         const SizedBox(height: 10),
-        Row(
-          children: [
-            const Text("Total items", style: MyTextStyles.font16MediumGrey),
-            const Spacer(),
-            Text(
-              "${sampleBasketItems.length} items",
-              style: MyTextStyles.font16BoldBlack,
+        ...[
+          ("Total items", "${sampleBasketItems.length} items"),
+          ("Subtotal", "$subtotal KD"),
+          ("Shipping Charges", "1.5 KD"),
+        ].map(
+          (e) => Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(e.$1, style: MyTextStyles.font16MediumGrey),
+                ),
+                Text(e.$2, style: MyTextStyles.font16BoldBlack),
+              ],
             ),
-          ],
+          ),
         ),
+        const Divider(),
         const SizedBox(height: 10),
         Row(
           children: [
-            const Text("Subtotal", style: MyTextStyles.font16MediumGrey),
-            const Spacer(),
-            Text(
-              "${sampleBasketItems.fold(0.0, (previousValue, element) => previousValue + element.product.discountedPrice * element.quantity)}",
-              style: MyTextStyles.font16BoldBlack,
+            const Expanded(
+              child: Text("Total", style: MyTextStyles.font18BoldPrimary),
             ),
-          ],
-        ),
-        const SizedBox(height: 10),
-        const Row(
-          children: [
-            Text("Shipping Charges", style: MyTextStyles.font16MediumGrey),
-            Spacer(),
-            Text("1.5 KD", style: MyTextStyles.font16BoldBlack),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Container(height: 1, color: Colors.grey.shade300),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            const Text("Total", style: MyTextStyles.font18BoldPrimary),
-            const Spacer(),
             Text(
               "${sampleBasketItems.fold(0.0, (previousValue, element) => previousValue + element.product.discountedPrice * element.quantity + 1.5)}",
               style: MyTextStyles.font18BoldPrimary,

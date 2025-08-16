@@ -25,7 +25,7 @@ class ProductItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
         child: Row(
           children: [
-            const MyCircularAvatar(imageUrl: '', radius: 40),
+            const MyCircularAvatar(imageUrl: ''),
             const SizedBox(width: 24),
             Expanded(child: ProductDetailsColum(product: product)),
             const SizedBox(width: 10),

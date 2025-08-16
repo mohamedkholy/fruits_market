@@ -218,7 +218,7 @@ class _BasketScreenState extends State<BasketScreen> {
 
   late double subTotal;
 
-  late double shippingCharges;
+  double shippingCharges = 1.5;
 
   late int itemCount;
 
@@ -228,10 +228,8 @@ class _BasketScreenState extends State<BasketScreen> {
     subTotal = sampleBasketItems.fold(
       0,
       (previousValue, element) =>
-          previousValue +
-          element.product.price * element.product.discount * element.quantity,
+          previousValue + element.product.discountedPrice * element.quantity,
     );
-    shippingCharges = 1.5;
     itemCount = sampleBasketItems.fold(
       0,
       (previousValue, element) => previousValue + element.quantity,
@@ -316,9 +314,8 @@ class _BasketScreenState extends State<BasketScreen> {
                               margin: const EdgeInsets.only(
                                 bottom: 20,
                                 top: 10,
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
+                                left: 15,
+                                right: 15,
                               ),
                               child: const DottedLine(
                                 dashGapLength: 5,
@@ -330,6 +327,7 @@ class _BasketScreenState extends State<BasketScreen> {
                               shippingCharges: shippingCharges,
                               itemCount: itemCount,
                             ),
+                            const SizedBox(height: 80),
                           ],
                         ),
                 );

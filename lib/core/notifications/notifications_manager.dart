@@ -15,16 +15,14 @@ class NotificationsManager {
   static final NotificationsManager _instance = NotificationsManager._();
   NotificationsManager._();
 
-  final FlutterLocalNotificationsPlugin _localNotifications =
-      FlutterLocalNotificationsPlugin();
+  final _localNotifications = FlutterLocalNotificationsPlugin();
 
-  final AndroidNotificationChannel _androidNotificationChannel =
-      const AndroidNotificationChannel(
-        'high_importance_channel',
-        'High Importance Notifications',
-        description: 'This channel is used for important notifications.',
-        importance: Importance.high,
-      );
+  final _androidNotificationChannel = const AndroidNotificationChannel(
+    'high_importance_channel',
+    'High Importance Notifications',
+    description: 'This channel is used for important notifications.',
+    importance: Importance.high,
+  );
 
   Future<void> requestPermission() async {
     await FirebaseMessaging.instance.requestPermission();
@@ -35,16 +33,6 @@ class NotificationsManager {
     await _createNotificationChannel();
     _initOneSignalNotifications();
     _initNotificationHandlers();
-  }
-
-  void _initOneSignalNotifications() {
-    OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
-    OneSignal.initialize("f3d3d68e-880d-404d-b2a1-9e6f6f58825c");
-  }
-
-  void _initNotificationHandlers() {
-    FirebaseMessaging.onMessage.listen(_showNotifications);
-    FirebaseMessaging.onBackgroundMessage(_notificationBackgroundHandler);
   }
 
   Future<void> _initializeLocalNotifications() async {
@@ -61,6 +49,16 @@ class NotificationsManager {
           AndroidFlutterLocalNotificationsPlugin
         >()
         ?.createNotificationChannel(_androidNotificationChannel);
+  }
+
+  void _initOneSignalNotifications() {
+    OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
+    OneSignal.initialize("f3d3d68e-880d-404d-b2a1-9e6f6f58825c");
+  }
+
+  void _initNotificationHandlers() {
+    FirebaseMessaging.onMessage.listen(_showNotifications);
+    FirebaseMessaging.onBackgroundMessage(_notificationBackgroundHandler);
   }
 
   Future<void> _showNotifications(RemoteMessage message) async {

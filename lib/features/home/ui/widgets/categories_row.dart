@@ -29,13 +29,7 @@ class CategoriesRow extends StatelessWidget {
                   color: Colors.white,
                   child: ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(25),
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child: Image.asset(
-                        categories[index],
-                        fit: BoxFit.contain,
-                      ),
-                    ),
+                    child: Image.asset(categories[index]),
                   ),
                 ),
               ),

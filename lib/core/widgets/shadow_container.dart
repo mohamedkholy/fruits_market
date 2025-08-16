@@ -17,8 +17,7 @@ class ShadowContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      padding:
-          padding ?? const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+      padding: padding ?? const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(borderRadius ?? 15),

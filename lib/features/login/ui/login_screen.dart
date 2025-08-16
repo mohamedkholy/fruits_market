@@ -13,6 +13,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final canPop = ModalRoute.canPopOf(context) ?? false;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -31,12 +32,19 @@ class LoginScreen extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacementNamed(
-                            context,
-                            MyRoutes.navigationScreen,
-                          );
+                          if (canPop) {
+                            Navigator.pop(context);
+                          } else {
+                            Navigator.pushReplacementNamed(
+                              context,
+                              MyRoutes.navigationScreen,
+                            );
+                          }
                         },
-                        child: const Icon(Icons.clear, size: 24),
+                        child: Icon(
+                          canPop ? Icons.arrow_back_ios : Icons.clear,
+                          size: 24,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 60),

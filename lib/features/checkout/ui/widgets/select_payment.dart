@@ -34,11 +34,12 @@ class _SelectPaymentState extends State<SelectPayment> {
               children: [
                 SvgPicture.asset(paymentMethods.values.elementAt(i)),
                 const SizedBox(width: 10),
-                Text(
-                  paymentMethods.keys.elementAt(i),
-                  style: MyTextStyles.font16BoldBlack,
+                Expanded(
+                  child: Text(
+                    paymentMethods.keys.elementAt(i),
+                    style: MyTextStyles.font16BoldBlack,
+                  ),
                 ),
-                const Spacer(),
                 Radio(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   value: i,

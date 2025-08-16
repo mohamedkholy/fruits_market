@@ -16,7 +16,14 @@ class _ContactUsLayoutState extends State<ContactUsScreen> {
   final TextEditingController _nameTextController = TextEditingController();
   final TextEditingController _mobileTextController = TextEditingController();
   final TextEditingController _messageTextController = TextEditingController();
+  final FocusNode _mobileFocusNode = FocusNode();
+  final FocusNode _messageFocusNode = FocusNode();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -24,6 +31,8 @@ class _ContactUsLayoutState extends State<ContactUsScreen> {
     _mobileTextController.dispose();
     _messageTextController.dispose();
     _formKey.currentState?.dispose();
+    _mobileFocusNode.dispose();
+    _messageFocusNode.dispose();
     super.dispose();
   }
 
@@ -51,18 +60,26 @@ class _ContactUsLayoutState extends State<ContactUsScreen> {
                         title: "name",
                         hintText: "name",
                         controller: _nameTextController,
+                        onFieldSubmitted: (value) {
+                          _mobileFocusNode.requestFocus();
+                        },
                       ),
                       const SizedBox(height: 24),
                       MyPhoneNumberFormField(
                         title: "mobile",
                         hintText: "mobile",
                         controller: _mobileTextController,
+                        focusNode: _mobileFocusNode,
+                        onFieldSubmitted: (value) {
+                          _messageFocusNode.requestFocus();
+                        },
                       ),
                       const SizedBox(height: 24),
                       MyTextFormField(
                         title: "message",
                         hintText: "message",
                         controller: _messageTextController,
+                        focusNode: _messageFocusNode,
                         maxLines: 5,
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 18,

@@ -67,7 +67,7 @@ class _DeliveryAddressLayoutState extends State<DeliveryAddressLayout> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        margin: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -88,19 +88,17 @@ class _DeliveryAddressLayoutState extends State<DeliveryAddressLayout> {
               ),
             ),
             const SizedBox(height: 20),
-            Column(
-              children: List.generate(addresses.length, (index) {
-                return AddressItem(
-                  address: addresses[index],
-                  onRadioChanged: (value) {
-                    setState(() {
-                      groupValue = value!;
-                    });
-                  },
-                  groupValue: groupValue,
-                );
-              }),
-            ),
+            ...List.generate(addresses.length, (index) {
+              return AddressItem(
+                address: addresses[index],
+                onRadioChanged: (value) {
+                  setState(() {
+                    groupValue = value!;
+                  });
+                },
+                groupValue: groupValue,
+              );
+            }),
           ],
         ),
       ),

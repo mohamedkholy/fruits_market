@@ -17,12 +17,17 @@ class PhoneSignInScreen extends StatefulWidget {
 class _PhoneSignInScreenState extends State<PhoneSignInScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final FocusNode _mobileFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     _phoneNumberController.dispose();
     _passwordController.dispose();
+    _mobileFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    _formKey.currentState?.dispose();
     super.dispose();
   }
 
@@ -78,6 +83,9 @@ class _PhoneSignInScreenState extends State<PhoneSignInScreen> {
                         controller: _phoneNumberController,
                         title: "Phone Number",
                         hintText: "Mobile Number",
+                        focusNode: _mobileFocusNode,
+                        onFieldSubmitted: (p0) =>
+                            _passwordFocusNode.requestFocus(),
                       ),
                       const SizedBox(height: 24),
                       MyTextFormField(
@@ -85,6 +93,7 @@ class _PhoneSignInScreenState extends State<PhoneSignInScreen> {
                         title: "Password",
                         hintText: "Enter your password",
                         isPassword: true,
+                        focusNode: _passwordFocusNode,
                       ),
                       const SizedBox(height: 16),
                       Align(

@@ -53,31 +53,36 @@ class _NavigationScreenState extends State<NavigationScreen> {
           _currentIndex = state;
         });
       },
-      child: Scaffold(
-        extendBody: true,
-        bottomNavigationBar: !isMediumWide
-            ? BottomNavLayout(
-                isWide: isWide,
-                currentIndex: _currentIndex,
-                onDestinationSelected: (index) {
-                  context.read<NavigationCubit>().navigate(index);
-                },
-                navItems: navItems,
-              )
-            : null,
-        body: Row(
-          children: [
-            if (isMediumWide)
-              NavigationRailLayout(
-                isWide: isWide,
-                currentIndex: _currentIndex,
-                onDestinationSelected: (index) {
-                  context.read<NavigationCubit>().navigate(index);
-                },
-                navItems: navItems,
-              ),
-            Expanded(child: _pages[_currentIndex]),
-          ],
+      child: SafeArea(
+        left: false,
+        top: false,
+        right: false,
+        child: Scaffold(
+          extendBody: true,
+          bottomNavigationBar: !isMediumWide
+              ? BottomNavLayout(
+                  isWide: isWide,
+                  currentIndex: _currentIndex,
+                  onDestinationSelected: (index) {
+                    context.read<NavigationCubit>().navigate(index);
+                  },
+                  navItems: navItems,
+                )
+              : null,
+          body: Row(
+            children: [
+              if (isMediumWide)
+                NavigationRailLayout(
+                  isWide: isWide,
+                  currentIndex: _currentIndex,
+                  onDestinationSelected: (index) {
+                    context.read<NavigationCubit>().navigate(index);
+                  },
+                  navItems: navItems,
+                ),
+              Expanded(child: _pages[_currentIndex]),
+            ],
+          ),
         ),
       ),
     );

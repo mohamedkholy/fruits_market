@@ -40,7 +40,7 @@ class ProductDetailsColum extends StatelessWidget {
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Text(
-              "${product.discount}% off",
+              "${(product.discount * 100).toStringAsFixed(2)}% off",
               style: MyTextStyles.font14MediumBlack,
             ),
           ),

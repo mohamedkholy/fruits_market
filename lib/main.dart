@@ -53,6 +53,18 @@ class MyApp extends StatelessWidget {
         primaryColor: MyColors.primaryColor,
         primaryColorLight: MyColors.primaryColor.withAlpha(100),
         primaryColorDark: MyColors.primaryColor.withAlpha(200),
+        dialogTheme: const DialogThemeData(
+          backgroundColor: Colors.white,
+        ),
+        datePickerTheme: const DatePickerThemeData(
+          backgroundColor: Colors.white,
+          cancelButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(MyColors.primaryColor),
+          ),
+          confirmButtonStyle: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(MyColors.primaryColor),
+          ),
+        ),
         radioTheme: const RadioThemeData(
           fillColor: WidgetStatePropertyAll(MyColors.primaryColor),
         ),

@@ -22,34 +22,21 @@ class BasketDetails extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text("Subtotal", style: MyTextStyles.font16BoldBlack),
-              Text("$subtotal KD", style: MyTextStyles.font16BoldBlack),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Shipping charges",
-                style: MyTextStyles.font16BoldBlack,
+          ...[
+            ("Subtotal", "$subtotal KD", 10.0),
+            ("Shipping charges", "$shippingCharges KD", 10.0),
+            ("Total", "${subtotal + shippingCharges} KD", 0.0),
+          ].map(
+            (e) => Container(
+              margin: EdgeInsets.only(bottom: e.$3),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(e.$1, style: MyTextStyles.font16BoldBlack),
+                  Text(e.$2, style: MyTextStyles.font16BoldBlack),
+                ],
               ),
-              Text("$shippingCharges KD", style: MyTextStyles.font16BoldBlack),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text("Total", style: MyTextStyles.font16BoldBlack),
-              Text(
-                "${subtotal + shippingCharges} KD",
-                style: MyTextStyles.font16BoldBlack,
-              ),
-            ],
+            ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height < 400 ? 10 : 30),
           Row(
