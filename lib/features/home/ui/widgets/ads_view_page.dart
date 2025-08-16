@@ -6,8 +6,9 @@ class AdsViewPage extends StatelessWidget {
   final PageController pageController;
   const AdsViewPage({
     super.key,
-    required this.ads,   
-    required this.pageController, required this.onPageChanged,
+    required this.ads,
+    required this.pageController,
+    required this.onPageChanged,
   });
 
   @override

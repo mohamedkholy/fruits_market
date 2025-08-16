@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/helpers/assets_helper.dart';
+import 'package:fruits_market/core/routing/my_routes.dart';
 import 'package:fruits_market/core/theming/my_text_styles.dart';
 import 'package:fruits_market/core/widgets/my_button.dart';
 import 'package:fruits_market/core/widgets/my_circular_avatar.dart';
@@ -29,7 +30,12 @@ class _UserProfilePictureState extends State<UserProfilePicture> {
         const SizedBox(height: 16),
         FractionallySizedBox(
           widthFactor: 0.8,
-          child: MyButton(onPressed: () {}, text: "Login"),
+          child: MyButton(
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.loginScreen);
+            },
+            text: "Login",
+          ),
         ),
       ],
     );

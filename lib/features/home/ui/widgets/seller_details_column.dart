@@ -12,13 +12,21 @@ class SellerDetailsColumn extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(seller.name, style: MyTextStyles.font16BoldBlack),
+        Row(
+          children: [
+            Expanded(
+              child: Text(seller.name, style: MyTextStyles.font16BoldBlack),
+            ),
+            Text("${seller.rating}", style: MyTextStyles.font14RegularGrey),
+          ],
+        ),
         const SizedBox(height: 5),
         Row(
           children: [
             const Icon(
               Icons.delivery_dining_outlined,
               color: MyColors.primaryColor,
+              size: 20,
             ),
             Expanded(
               child: Text(
@@ -29,28 +37,50 @@ class SellerDetailsColumn extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
+        Row(
           children: [
-            const CircleAvatar(radius: 3, backgroundColor: MyColors.grey),
-            Text(
-              " ${seller.isOpen ? " Open" : " Close"}",
-              style: MyTextStyles.font14RegularGrey.copyWith(
-                color: seller.isOpen ? Colors.green : Colors.red,
+            Expanded(
+              child: Wrap(
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const CircleAvatar(
+                        radius: 3,
+                        backgroundColor: MyColors.grey,
+                      ),
+                      Text(
+                        " ${seller.isOpen ? " Open" : " Close"}",
+                        style: MyTextStyles.font14RegularGrey.copyWith(
+                          color: seller.isOpen ? Colors.green : Colors.red,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(width: 20),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const CircleAvatar(
+                        radius: 3,
+                        backgroundColor: MyColors.grey,
+                      ),
+                      Text(
+                        "  ${seller.mainProduct}",
+                        style: MyTextStyles.font14RegularGrey.copyWith(
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            const SizedBox(width: 20),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const CircleAvatar(radius: 3, backgroundColor: MyColors.grey),
-                Text(
-                  "  ${seller.mainProduct}",
-                  style: MyTextStyles.font14RegularGrey.copyWith(
-                    color: Colors.blue,
-                  ),
-                ),
-              ],
+            Text(
+              "2.5 KM",
+              style: MyTextStyles.font14RegularGrey.copyWith(
+                color: MyColors.primaryColor,
+              ),
             ),
           ],
         ),

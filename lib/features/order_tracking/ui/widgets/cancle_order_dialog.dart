@@ -26,7 +26,6 @@ class _CancleOrderDialogState extends State<CancleOrderDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.white,
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 570),
         child: SingleChildScrollView(
@@ -43,7 +42,7 @@ class _CancleOrderDialogState extends State<CancleOrderDialog> {
                     const Text("Reason", style: MyTextStyles.font14RegularGrey),
                     const SizedBox(height: 7),
                     ShadowContainer(
-                      borderRadius: 50,
+                      borderRadius: 10,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton(

@@ -21,7 +21,6 @@ class _FilterSellersDialogState extends State<FilterSellersDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.white,
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 570),
         child: SingleChildScrollView(

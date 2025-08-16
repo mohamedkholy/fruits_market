@@ -20,7 +20,6 @@ class AppBarBackground extends StatelessWidget {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 125,
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: SellerInfo(seller: seller),
           ),

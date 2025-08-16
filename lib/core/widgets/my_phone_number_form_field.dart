@@ -9,12 +9,16 @@ class MyPhoneNumberFormField extends StatefulWidget {
   final String title;
   final String hintText;
   final TextEditingController controller;
+  final FocusNode? focusNode;
+  final void Function(String)? onFieldSubmitted;
 
   const MyPhoneNumberFormField({
     super.key,
     required this.title,
     required this.hintText,
     required this.controller,
+    this.focusNode,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -52,6 +56,8 @@ class _MyPhoneNumberFormFieldState extends State<MyPhoneNumberFormField> {
         ),
         const SizedBox(height: 8),
         TextFormField(
+          focusNode: widget.focusNode,
+          onFieldSubmitted: widget.onFieldSubmitted,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your phone number';
@@ -96,11 +102,11 @@ class _MyPhoneNumberFormFieldState extends State<MyPhoneNumberFormField> {
                         dropdownColor: Colors.white,
                         icon: const SizedBox.shrink(),
                         value: _selectedCountryIsoCode,
-                        items: countryToPhoneCode.keys.map((String key) {
+                        items: countryToPhoneCode.entries.map((entry) {
                           return DropdownMenuItem<String>(
-                            value: key,
+                            value: entry.key,
                             child: Text(
-                              '${countryCodeToEmoji(key)} ${countryToPhoneCode[key]!}',
+                              '${countryCodeToEmoji(entry.key)} ${entry.value}',
                               style: MyTextStyles.font17RegularGrey,
                             ),
                           );

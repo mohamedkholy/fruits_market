@@ -8,6 +8,10 @@ class CategoriesRow extends StatelessWidget {
     Assets.imagesPngCategoryFarms,
     Assets.imagesPngCategoryCoffee,
     Assets.imagesPngCategoryPharmacy,
+    Assets.imagesPngCategoryResturants,
+    Assets.imagesPngCategoryFarms,
+    Assets.imagesPngCategoryCoffee,
+    Assets.imagesPngCategoryPharmacy,
   ];
 
   @override
@@ -29,13 +33,7 @@ class CategoriesRow extends StatelessWidget {
                   color: Colors.white,
                   child: ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(25),
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child: Image.asset(
-                        categories[index],
-                        fit: BoxFit.contain,
-                      ),
-                    ),
+                    child: Image.asset(categories[index], fit: BoxFit.contain),
                   ),
                 ),
               ),

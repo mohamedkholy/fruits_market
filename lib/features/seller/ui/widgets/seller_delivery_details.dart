@@ -30,7 +30,10 @@ class SellerDeliveryDetails extends StatelessWidget {
               color: MyColors.primaryColor,
               size: 20,
             ),
-            Text("  KD $deliveryFee", style: MyTextStyles.font14MediumBlack),
+            Text(
+              "  KD ${deliveryFee.toStringAsFixed(1)}",
+              style: MyTextStyles.font14MediumBlack,
+            ),
           ],
         ),
       ],

@@ -12,6 +12,8 @@ class MyTextFormField extends StatefulWidget {
   final int? maxLines;
   final EdgeInsetsGeometry? contentPadding;
   final bool isRequired;
+  final FocusNode? focusNode;
+  final void Function(String)? onFieldSubmitted;
   const MyTextFormField({
     super.key,
     required this.title,
@@ -22,6 +24,8 @@ class MyTextFormField extends StatefulWidget {
     this.maxLines,
     this.contentPadding,
     this.isRequired = true,
+    this.focusNode,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -74,10 +78,11 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
               },
           controller: widget.controller,
           obscureText: _isObscured,
+          focusNode: widget.focusNode,
+          onFieldSubmitted: widget.onFieldSubmitted,
           decoration: InputDecoration(
-            suffixIcon: !widget.isPassword!
-                ? null
-                : IconButton(
+            suffixIcon: widget.isPassword!
+                ? IconButton(
                     icon: _isObscured
                         ? const Icon(Icons.visibility_off)
                         : const Icon(Icons.visibility),
@@ -86,7 +91,8 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
                         _isObscured = !_isObscured;
                       });
                     },
-                  ),
+                  )
+                : null,
             contentPadding:
                 widget.contentPadding ??
                 const EdgeInsets.symmetric(horizontal: 18),

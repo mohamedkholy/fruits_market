@@ -24,7 +24,7 @@ class _MyWidgetState extends State<AdsLayout> {
 
   @override
   void initState() {
-    startTimer();
+    _startAdsTimer();
     super.initState();
   }
 
@@ -64,20 +64,20 @@ class _MyWidgetState extends State<AdsLayout> {
     );
   }
 
-  void startTimer() {
+  void _startAdsTimer() {
     Future.delayed(
       Duration(milliseconds: _selectedPageIndex == ads.length - 2 ? 500 : 3000),
     ).then((value) {
       if (mounted) {
         if (_selectedPageIndex == ads.length - 1) {
           _controller.jumpToPage(0);
-          startTimer();
+          _startAdsTimer();
         } else {
           _controller.nextPage(
             duration: const Duration(milliseconds: 500),
             curve: Curves.easeInOut,
           );
-          startTimer();
+          _startAdsTimer();
         }
       }
     });

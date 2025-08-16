@@ -40,41 +40,26 @@ class CheckoutProgress extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(
-                  textAlign: TextAlign.start,
-                  "Delivery time",
-                  style: MyTextStyles.font16RegularBlack.copyWith(
-                    color: step >= 1
-                        ? MyColors.primaryColor
-                        : Colors.grey.shade400,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  textAlign: TextAlign.center,
-                  "Delivery Address",
-                  style: MyTextStyles.font16RegularBlack.copyWith(
-                    color: step >= 2
-                        ? MyColors.primaryColor
-                        : Colors.grey.shade400,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  textAlign: TextAlign.end,
-                  "Payment",
-                  style: MyTextStyles.font16RegularBlack.copyWith(
-                    color: step >= 3
-                        ? MyColors.primaryColor
-                        : Colors.grey.shade400,
-                  ),
-                ),
-              ),
-            ],
+            children:
+                [
+                      ("Delivery time", 1, TextAlign.start),
+                      ("Delivery Address", 2, TextAlign.center),
+                      ("Payment", 3, TextAlign.end),
+                    ]
+                    .map(
+                      (e) => Expanded(
+                        child: Text(
+                          textAlign: e.$3,
+                          e.$1,
+                          style: MyTextStyles.font16RegularBlack.copyWith(
+                            color: step >= e.$2
+                                ? MyColors.primaryColor
+                                : Colors.grey.shade400,
+                          ),
+                        ),
+                      ),
+                    )
+                    .toList(),
           ),
         ),
         const SizedBox(height: 10),

@@ -48,8 +48,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               constraints: const BoxConstraints(maxWidth: 600),
               child: Container(
                 margin: EdgeInsets.only(
-                  top: 30,
-                  bottom: MediaQuery.sizeOf(context).height < 500 ? 15 : 30,
+                  top: MediaQuery.sizeOf(context).height < 500 ? 5 : 30,
+                  bottom: MediaQuery.sizeOf(context).height < 500 ? 0 : 30,
                 ),
                 child: Column(
                   children: [
@@ -70,7 +70,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         widthFactor: 0.8,
                         child: MyButton(
                           onPressed: () {
-                            if (step > 1) {
+                            if (step == 2) {
                               Navigator.pushReplacementNamed(
                                 context,
                                 MyRoutes.orderPlacementScreen,
@@ -81,7 +81,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               });
                             }
                           },
-                          text: step > 1 ? "Place Order" : "Continue",
+                          text: step == 2 ? "Place Order" : "Continue",
                         ),
                       ),
                     ),
